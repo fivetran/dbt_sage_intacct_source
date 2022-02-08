@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: sage_intacct
+    schema: "{{ var('sage_intacct_schema', 'sage_intacct') }}"
+    database: "{{ var('sage_intacct_database', target.database) }}"
+    loader: fivetran
+    loaded_at_field: _fivetran_synced
+    freshness:
+      warn_after: {count: 48, period: hour}
+      error_after: {count: 72, period: hour}
+
+
+    tables:
+      - name: gl_detail
+        description: x
+
+      - name: gl_account
+        description: x
+
