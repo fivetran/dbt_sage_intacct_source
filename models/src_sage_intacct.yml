@@ -18,3 +18,29 @@ sources:
       - name: gl_account
         description: x
 
+      - name: company
+        description: x
+
+      - name: contact
+        description: x
+
+      - name: customer
+        description: x
+
+      - name: department
+        description: x
+
+      - name: employee
+        description: x
+
+      - name: item
+        description: x
+
+      - name: journal
+        description: x
+
+      - name: location
+        description: x
+
+      - name: vendor
+        description: x
