@@ -24,7 +24,7 @@ final as (
     select 
 
     recordno as record_no,
-    cast(accountno as decimal) as account_no,
+    cast(accountno as string) as account_no,
     accounttitle as account_title,
     amount,
     batch_date,
