@@ -18,10 +18,16 @@ sources:
       - name: gl_account
         description: x
 
-      - name: company
+      - name: ap_bill
         description: x
 
-      - name: contact
+      - name: ap_bill_item
+        description: x
+
+      - name: ar_invoice
+        description: x
+
+      - name: ar_invoice_item
         description: x
 
       - name: customer
