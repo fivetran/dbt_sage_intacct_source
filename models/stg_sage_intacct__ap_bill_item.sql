@@ -23,8 +23,8 @@ final as (
     
     select 
 
-    recordkey,
-    recordno,
+    recordkey as bill_id,
+    recordno as bill_item_id,
     _fivetran_synced,
     accountkey,
     accountno,
@@ -34,12 +34,10 @@ final as (
     baselocation,
     billable,
     billed,
-    classdimkey,
     classid,
     classname,
     createdby,
     currency,
-    customerdimkey,
     customerid,
     customername,
     departmentid,
@@ -47,7 +45,6 @@ final as (
     entry_date,
     entrydescription,
     exchange_rate,
-    itemdimkey,
     itemid,
     itemname,
     line_no,
@@ -61,16 +58,11 @@ final as (
     state,
     totalpaid,
     totalselected,
-    trx_amount,
-    trx_totalpaid,
-    trx_totalselected,
-    vendordimkey,
     vendorid,
     vendorname,
     whencreated,
     whenmodified,
     projectname,
-    projectdimkey,
     projectid
 
     from fields
