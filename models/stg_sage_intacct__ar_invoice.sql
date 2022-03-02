@@ -44,7 +44,6 @@ final as (
     shiptoreturntocontactname as ship_to_return_to_contact_name,
     shiptoreturntokey as ship_to_return_to_key,
     state as state,
-    systemgenerated as system_generated,
     totaldue as total_due,
     totalentered as total_entered,
     totalpaid as total_paid,
