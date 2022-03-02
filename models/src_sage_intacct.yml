@@ -13,40 +13,285 @@ sources:
 
     tables:
       - name: gl_detail
-        description: x
-
+        description: Records all general ledger transactions, each with its offset entry, with additional fields.
+        columns:
+          - name: accountno
+            description: ID of the account
+          - name: accounttitle
+            description: Name of the account
+          - name: amount
+            description: Value of transaction
+          - name: batch_date
+            description: When transaction was batched
+          - name: batch_no
+            description: What batch the transaction was part of
+          - name: batch_title
+            description: Name of batch
+          - name: batchkey
+            description: The individual batch number of the transaction
+          - name: bookid
+            description: ID of the book 
+          - name: creditamount
+            description: If credit, the value
+          - name: debitamount
+            description: If debit, the value
+          - name: customerid
+            description: ID of the customer
+          - name: customername
+            description: Name of the customer
+          - name: description
+            description: Description of the transaction
+          - name: docnumber
+            description: Document number
+          - name: entry_date
+            description: Timestamp of entry
+          - name: entry_state
+            description: State of entry
+          - name: entrydescription
+            description: Description of entry
+          - name: line_no
+            description: The number of each line item of the transaction 
+          - name: modified
+            description: Timestamp of when modified
+          - name: recordid
+            description: ID of record, which corresponds to the bill or invoice ID.
+          - name: recordtype
+            description: Type of record, for example AP Bill
+          - name: totaldue
+            description: Value of amount due
+          - name: totalentered
+            description: Value entered
+          - name: totalpaid
+            description: Value paid
+          - name: tr_type
+            description: Transaction type
+          - name: trx_amount
+            description: Transaction amount
+          - name: trx_creditamount
+            description: If credit, transaction amount
+          - name: trx_debitamount
+            description: If debit, transaction amount
+          - name: vendorid
+            description: Id of vendor
+          - name: vendorname
+            description: Name of vendor
+          - name: whencreated
+            description: When transaction occurred
+          - name: whendue
+            description: When transaction is due
+          - name: whenmodified
+            description: When transaction is modified
+          - name: whenpaid
+            description: When transaction was paid
+         
       - name: gl_account
-        description: x
+        description: A table of account details and their corresponding category, along with custom fields
+      #   columns: 
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
 
       - name: ap_bill
-        description: x
+        description: Records each bill that is owed to vendors
+      #   columns: 
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
 
       - name: ap_bill_item
-        description: x
+        description: Records each item of each bill owed
+      #   columns: 
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
 
       - name: ar_invoice
-        description: x
+        description: Records each invoice that is owed by customers
+      #   columns: 
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
 
       - name: ar_invoice_item
-        description: x
+        description: Records each item of each invoice owed by customers
+      #   columns: 
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
+      #     - name: 
+      #       description:
 
-      - name: customer
-        description: x
-
-      - name: department
-        description: x
-
-      - name: employee
-        description: x
-
-      - name: item
-        description: x
-
-      - name: journal
-        description: x
-
-      - name: location
-        description: x
-
-      - name: vendor
-        description: x
+  
