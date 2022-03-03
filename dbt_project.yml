@@ -17,50 +17,12 @@ models:
 vars:
   sage_intacct_source:
     gl_detail:                    "{{ source('sage_intacct','gl_detail') }}"
-    # gl_batch:                    "{{ source('sage_intacct','gl_batch') }}"
-    # gl_entry:                  "{{ source('sage_intacct','gl_entry') }}"
-    # customer:            "{{ source('sage_intacct','customer') }}"
-    # contact:          "{{ source('sage_intacct','contact') }}"
-    # user_info:               "{{ source('sage_intacct','user_info') }}"
-    # vendor:                       "{{ source('sage_intacct','vendor') }}"
-    gl_account:                "{{ source('sage_intacct','gl_account') }}"
-    ap_bill_item:                     "{{ source('sage_intacct','ap_bill_item') }}"
-    ap_bill:           "{{ source('sage_intacct','ap_bill') }}"
-    # location:                "{{ source('sage_intacct','location') }}"
-    ar_invoice_item:                   "{{ source('sage_intacct','ar_invoice_item') }}"
-    ar_invoice:                 "{{ source('sage_intacct','ar_invoice') }}"
-    # gl_acct_grp:               "{{ source('sage_intacct','gl_acct_grp') }}"
-    # ar_payment_item:                    "{{ source('sage_intacct','ar_payment_item') }}"
-    # gl_acct_grp_member:                   "{{ source('sage_intacct','gl_acct_grp_member') }}"
-    # ar_payment:              "{{ source('sage_intacct','ar_payment') }}"
-    # acct_range:               "{{ source('sage_intacct','acct_range') }}"
-    # vendor_visibility:        "{{ source('sage_intacct','vendor_visibility') }}"
-    # item:         "{{ source('sage_intacct','item') }}"
-    # ap_bill_batch:                    "{{ source('sage_intacct','ap_bill_batch') }}"
-    # ar_invoice_payment:                       "{{ source('sage_intacct','ar_invoice_payment') }}"
-    # department:         "{{ source('sage_intacct','department') }}"
-    # location_entity:              "{{ source('sage_intacct','location_entity') }}"
-    # activity_log:               "{{ source('sage_intacct','activity_log') }}"
-    # employee:                    "{{ source('sage_intacct','employee') }}"
-    # journal:              "{{ source('sage_intacct','journal') }}"
-    # ap_payment:                   "{{ source('sage_intacct','ap_payment') }}"
-    # ap_payment_item:        "{{ source('sage_intacct','ap_payment_item') }}"
-    # ap_pymt:             "{{ source('sage_intacct','ap_pymt') }}"
-    # item_gl_group:  "{{ source('sage_intacct','item_gl_group') }}"
-    # checking_account:        "{{ source('sage_intacct','checking_account') }}"
-    # ap_bill_payment:             "{{ source('sage_intacct','ap_bill_payment') }}"
-    # company:         "{{ source('sage_intacct','company') }}"
-    # ar_adjustment_item:              "{{ source('sage_intacct','ar_adjustment_item') }}"
-    # ap_pymt_detail:                   "{{ source('sage_intacct','ap_pymt_detail') }}"
-    # user_rights:         "{{ source('sage_intacct','user_rights') }}"
-    # ar_adjustment:              "{{ source('sage_intacct','ar_adjustment') }}"
-    # so_document:                     "{{ source('sage_intacct','so_document') }}"
-    # so_document_entry:                     "{{ source('sage_intacct','so_document_entry') }}"
-
-    #add variables for optional parent child tables?
-    #
-    #
-
+    gl_account:                   "{{ source('sage_intacct','gl_account') }}"
+    ap_bill_item:                 "{{ source('sage_intacct','ap_bill_item') }}"
+    ap_bill:                      "{{ source('sage_intacct','ap_bill') }}"
+    ar_invoice_item:              "{{ source('sage_intacct','ar_invoice_item') }}"
+    ar_invoice:                   "{{ source('sage_intacct','ar_invoice') }}"
+    
 clean-targets:
     - target
     - dbt_modules

@@ -1,0 +1,23 @@
+
+name: 'sage_intacct_source'
+version: '0.1.0'
+config-version: 2
+
+profile: 'integration_tests' 
+
+vars:
+  sage_intacct_source:
+    gl_detail:                    "{{ source('sage_intacct','gl_detail') }}"
+    gl_account:                   "{{ source('sage_intacct','gl_account') }}"
+    ap_bill_item:                 "{{ source('sage_intacct','ap_bill_item') }}"
+    ap_bill:                      "{{ source('sage_intacct','ap_bill') }}"
+    ar_invoice_item:              "{{ source('sage_intacct','ar_invoice_item') }}"
+    ar_invoice:                   "{{ source('sage_intacct','ar_invoice') }}"
+    
+
+seeds:
+  +quote_columns: "{{ true if target.type == 'redshift' else false }}"
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
