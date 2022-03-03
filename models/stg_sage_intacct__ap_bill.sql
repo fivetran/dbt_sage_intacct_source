@@ -26,7 +26,7 @@ final as (
     cast(recordno as string) as bill_id,
     _fivetran_deleted,
     _fivetran_synced,
-    auwhencreated as au_when_created,
+    auwhencreated as au_created_at,
     basecurr as base_curr,
     billtopaytocontactname as bill_to_pay_to_contact_name,
     billtopaytokey as bill_to_pay_to_key,
@@ -44,11 +44,11 @@ final as (
     totalpaid as total_paid,
     vendorid as vendor_id,
     vendorname as vendor_name,
-    whencreated as when_created,
-    whendue as when_due,
-    whenmodified as when_modified,
-    whenpaid as when_paid,
-    whenposted as when_posted
+    whencreated as created_at,
+    whendue as due_at,
+    whenmodified as modified_at,
+    whenpaid as paid_at,
+    whenposted as posted_at
 
     from fields
 )

@@ -39,10 +39,9 @@ final as (
     customername as customer_name,
     departmentid as department_id,
     departmentname as department_name,
-    entry_date as entry_date,
+    entry_date as entry_date_at,
     entrydescription as entry_description,
     exchange_rate as exchange_rate,
-    itemdimkey as item_dim_key,
     itemid as item_id,
     itemname as item_name,
     line_no as line_no,
@@ -57,8 +56,8 @@ final as (
     totalselected as total_selected,
     vendorid as vendor_id,
     vendorname as vendor_name,
-    whencreated as when_created,
-    whenmodified as when_modified,
+    whencreated as created_at,
+    whenmodified as modified_at,
     warehouseid as warehouse_id,
     warehousename as warehouse_name
 

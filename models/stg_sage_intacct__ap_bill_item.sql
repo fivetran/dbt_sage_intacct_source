@@ -41,7 +41,7 @@ final as (
     customername as customer_name,
     departmentid as department_id,
     departmentname as department_name,
-    entry_date as entry_date,
+    entry_date as entry_date_at,
     entrydescription as entry_description,
     exchange_rate as exchange_rate,
     itemid as item_id,
@@ -59,8 +59,8 @@ final as (
     totalselected as total_selected,
     vendorid as vendor_id,
     vendorname as vendor_name,
-    whencreated as when_created,
-    whenmodified as when_modified,
+    whencreated as created_at,
+    whenmodified as modified_at,
     projectname as project_name,
     projectid as project_id
 

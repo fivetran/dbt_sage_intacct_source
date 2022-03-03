@@ -38,11 +38,10 @@ final as (
     customername as customer_name,
     description,
     docnumber as doc_number,
-    entry_date,
+    entry_date as entry_date_at,
     entry_state,
     entrydescription as entry_description,
     line_no,
-    modified as modified_at,
     recordid as record_id,
     recordtype as record_type,
     totaldue as total_due,
@@ -54,10 +53,10 @@ final as (
     trx_debitamount,
     vendorid as vendor_id,
     vendorname as vendor_name,
-    whencreated as when_created,
-    whendue as when_due,
-    whenmodified as when_modified,
-    whenpaid as when_paid
+    whencreated as created_at,
+    whendue as due_at,
+    whenmodified as modified_at,
+    whenpaid as paid_at
 
     from fields
 )
