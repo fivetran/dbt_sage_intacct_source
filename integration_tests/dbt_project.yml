@@ -5,10 +5,6 @@ config-version: 2
 
 profile: 'integration_tests' 
 
-vars:
-  sage_intacct_database: 'lustrous-optics-283619'
-  sage_intacct_schema: 'sage_intacct'
-
   sage_intacct_source:
     gl_detail:                    "{{ source('sage_intacct','gl_detail') }}"
     gl_account:                   "{{ source('sage_intacct','gl_account') }}"
