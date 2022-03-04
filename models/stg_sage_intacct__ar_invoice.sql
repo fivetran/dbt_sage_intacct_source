@@ -37,7 +37,6 @@ final as (
     docnumber as doc_number,
     due_in_days as due_in_days,
     megaentityid as mega_entity_id,
-    megaentitykey as mega_entity_key,
     megaentityname as mega_entity_name,
     recordid as record_id,
     recordtype as record_type,

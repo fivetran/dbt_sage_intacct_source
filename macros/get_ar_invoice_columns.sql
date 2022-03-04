@@ -15,7 +15,6 @@
     {"name": "docnumber", "datatype": dbt_utils.type_string()},
     {"name": "due_in_days", "datatype": dbt_utils.type_int()},
     {"name": "megaentityid", "datatype": dbt_utils.type_string()},
-    {"name": "megaentitykey", "datatype": dbt_utils.type_int()},
     {"name": "megaentityname", "datatype": dbt_utils.type_string()},
     {"name": "recordid", "datatype": dbt_utils.type_string()},
     {"name": "recordno", "datatype": dbt_utils.type_string()},

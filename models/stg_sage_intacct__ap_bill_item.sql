@@ -52,7 +52,6 @@ final as (
     locationname as location_name,
     offsetglaccountno as offset_gl_account_no,
     offsetglaccounttitle as offset_gl_account_title,
-    prentryoffsetaccountno as pr_entry_offset_account_no,
     recordtype as record_type,
     state as state,
     totalpaid as total_item_paid,
