@@ -30,7 +30,7 @@ final as (
     alternativeaccount as alternative_account,	
     category,	
     categorykey as category_key,	
-    closetoacctkey,	
+    closetoacctkey as close_to_acct_key,	
     closingaccountno as closing_account_no,	
     closingaccounttitle as closing_account_title,	
     closingtype as closing_type,	
