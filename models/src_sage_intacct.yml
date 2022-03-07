@@ -59,6 +59,8 @@ sources:
             description: Timestamp of when modified
           - name: recordid
             description: ID of record, which corresponds to the bill or invoice ID.
+          - name: recordno
+            description: Primary key
           - name: recordtype
             description: Type of record, for example AP Bill
           - name: totaldue
@@ -87,9 +89,9 @@ sources:
             description: When transaction is modified
           - name: whenpaid
             description: When transaction was paid
-         
+        
       - name: gl_account
-        description: A table of account details and their corresponding category, along with custom fields
+        description: A table of account details and their corresponding categories
         columns: 
           - name: _fivetran_deleted
             description: The timestamp of when the data was deleted by Fivetran
@@ -256,7 +258,6 @@ sources:
             description: Name of item
           - name: line_no
             description: Line number of the item out of the overall bill 
-            # *
           - name: lineitem
             description: True or false
           - name: locationid
@@ -408,7 +409,7 @@ sources:
           - name: offsetglaccountno
             description: Offsetting account no from GL_ACCOUNT
           - name: offsetglaccounttitle
-            description: Offsetting account tiel from GL_ACCOUNT
+            description: Offsetting account title from GL_ACCOUNT
           - name: recordkey
             description: Foreign key mapping to AR_INVOICE.RECORDNO
           - name: recordno
