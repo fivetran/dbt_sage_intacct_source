@@ -5,6 +5,7 @@ config-version: 2
 
 profile: 'integration_tests' 
 
+vars:
   sage_intacct_source:
     gl_detail:                    "{{ ref('sage_intacct__gl_detail') }}"
     gl_account:                   "{{ ref('sage_intacct__gl_account') }}"
