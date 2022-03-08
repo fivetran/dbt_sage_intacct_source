@@ -23,7 +23,7 @@ final as (
     
     select 
 
-    cast(accountno as string) as account_no,
+    cast(accountno as {{ dbt_utils.type_string() }}) as account_no,
     _fivetran_deleted,	
     _fivetran_synced,	
     accounttype as account_type,	
