@@ -24,7 +24,7 @@ final as (
     select 
 
     recordno as gl_detail_id,
-    cast(accountno as string) as account_no,
+    cast(accountno as {{ dbt_utils.type_string() }}) as account_no,
     accounttitle as account_title,
     amount,
     batch_date,

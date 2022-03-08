@@ -23,7 +23,7 @@ final as (
     
     select 
     
-    cast(recordno as string) as invoice_id,
+    cast(recordno as {{ dbt_utils.type_string() }}) as invoice_id,
     _fivetran_deleted,
     _fivetran_synced,
     auwhencreated as au_created_at,
