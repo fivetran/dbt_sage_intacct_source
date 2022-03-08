@@ -42,7 +42,7 @@ final as (
     taxable,	
     title,	
     whencreated as created_at,	
-    whenmodified as modified_at,	
+    whenmodified as modified_at	
     -- cf_fs_group_5,	
     -- cf_fs_group_4,	
     -- cf_fs_group_3,	

@@ -303,7 +303,7 @@ models:
         description: ID of account 
         tests:
           - unique 
-          - not null
+          - not_null
       - name: account_no
         description: ID of account
       - name: _fivetran_deleted
