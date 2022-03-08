@@ -42,28 +42,7 @@ final as (
     taxable,	
     title,	
     whencreated as created_at,	
-    whenmodified as modified_at,	
-    -- cf_fs_group_5,	
-    -- cf_fs_group_4,	
-    -- cf_fs_group_3,	
-    -- cf_fs_group_2,	
-    -- cf_fs_group_1,
-    -- cf_category,	
-    -- cf_bs_group_1,	
-    -- cf_bs_account_group,	
-    -- cf_bs_account_name,	
-    -- cf_account_group,	
-    -- cf_bs_order_summary,	
-    -- cf_is_order_detail,	
-    -- cf_is_order_summary,	
-    -- cf_bs_group_3,	
-    -- cf_bs_group_2,	
-    -- cf_bs_group_4,
-    -- cf_bs_group_5,	
-    -- cf_reporting_group_1,
-    -- cf_bs_order_detail,
-    -- cf_bs_account_number,	
-    -- cf_header_account
+    whenmodified as modified_at
 
     from fields
 )
