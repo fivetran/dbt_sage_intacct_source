@@ -13,18 +13,6 @@ jobs:
           command: |
             echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
       - run:
-          name: "Run Tests - BigQuery"
-          environment:
-              GCLOUD_SERVICE_KEY_PATH: "/home/circleci/gcloud-service-key.json"
-          command: |
-            . venv/bin/activate
-            echo `pwd`
-            cd integration_tests
-            dbt deps
-            dbt seed --target bigquery --full-refresh
-            dbt run --target bigquery --full-refresh
-            dbt test --target bigquery
-      - run:
           name: "Setup dbt"
           command: |
             sudo apt install libsasl2-dev
@@ -74,3 +62,16 @@ jobs:
             dbt seed --target snowflake --full-refresh
             dbt run --target snowflake --full-refresh
             dbt test --target snowflake
+      - run:
+          name: "Run Tests - BigQuery"
+          environment:
+              GCLOUD_SERVICE_KEY_PATH: "/home/circleci/gcloud-service-key.json"
+
+          command: |
+            . venv/bin/activate
+            echo `pwd`
+            cd integration_tests
+            dbt deps
+            dbt seed --target bigquery --full-refresh
+            dbt run --target bigquery --full-refresh
+            dbt test --target bigquery
