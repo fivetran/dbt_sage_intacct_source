@@ -19,6 +19,8 @@ vars:
     ar_invoice_item:              "{{ source('sage_intacct','ar_invoice_item') }}"
     ar_invoice:                   "{{ source('sage_intacct','ar_invoice') }}"
     
+    account_pass_through_columns: []
+    
 clean-targets:
     - target
     - dbt_modules

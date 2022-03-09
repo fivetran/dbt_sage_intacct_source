@@ -41,6 +41,7 @@ vars:
     sage_intacct_database: your_database_name
     sage_intacct_schema: your_schema_name 
 ```
+### Passthrough Columns
 This package allows users to add additional columns to the final model tables. 
 Columns passed through must be present in the downstream source tables. See 
 below for an example of how the passthrough columns should be configured within your `dbt_project.yml` file.
@@ -50,21 +51,9 @@ below for an example of how the passthrough columns should be configured within 
 
 ...
 vars:
-#   add pass through columns
+  sage_intacct_source:
+    account_pass_through_columns: ['new_custom_field', 'custom_field_2']
 ```
-
-
-```yml
-# dbt_project.yml
-
-...
-vars:
-  
-```
-### Disable models
-It's possible that your Sage Intacct connector does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Sage Intacct or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must add the relevant variables. By default, the package assume that all variables are true. Add variables for only the tables you want to disable. 
-
-<!-- do we want an example here? -->
 
 ### Change the Build Schema
 By default, this package builds the Sage Intacct staging models within a schema titled (<target_schema> + `_stg_sage_intacct`) in your target database. If this is not where you would like your Sage Intacct staging data to be written to, add the following configuration to your `dbt_project.yml` file:

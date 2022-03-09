@@ -15,7 +15,13 @@ fields as (
                 staging_columns=get_gl_account_columns()
             )
         }}
-        
+        --The below script allows for pass through columns.
+        {% if var('account_pass_through_columns') %}
+        ,
+        {{ var('account_pass_through_columns') | join (", ")}}
+
+        {% endif %}
+
     from base
 ),
 
@@ -43,27 +49,13 @@ final as (
     title,	
     whencreated as created_at,	
     whenmodified as modified_at	
-    -- cf_fs_group_5,	
-    -- cf_fs_group_4,	
-    -- cf_fs_group_3,	
-    -- cf_fs_group_2,	
-    -- cf_fs_group_1,
-    -- cf_category,	
-    -- cf_bs_group_1,	
-    -- cf_bs_account_group,	
-    -- cf_bs_account_name,	
-    -- cf_account_group,	
-    -- cf_bs_order_summary,	
-    -- cf_is_order_detail,	
-    -- cf_is_order_summary,	
-    -- cf_bs_group_3,	
-    -- cf_bs_group_2,	
-    -- cf_bs_group_4,
-    -- cf_bs_group_5,	
-    -- cf_reporting_group_1,
-    -- cf_bs_order_detail,
-    -- cf_bs_account_number,	
-    -- cf_header_account
+
+    --The below script allows for pass through columns.
+    {% if var('account_pass_through_columns') %}
+    ,
+    {{ var('account_pass_through_columns') | join (", ")}}
+
+    {% endif %}
 
     from fields
 )
