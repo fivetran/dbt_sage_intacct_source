@@ -29,32 +29,32 @@ final as (
         accountkey as account_key,
         accountno as account_no,
         accounttitle as account_title,
-        amount as amount, -- Why are we renaming this?
+        amount, 
         basecurr as base_curr,
         baselocation as base_location,
-        billable as billable, -- Why are we renaming this?
-        billed as billed, -- Why are we renaming this?
+        billable, 
+        billed,
         classid as class_id,
         classname as class_name,
         createdby as created_by,
-        currency as currency, -- Why are we renaming this?
+        currency,
         customerid as customer_id,
         customername as customer_name,
         departmentid as department_id,
         departmentname as department_name,
         entry_date as entry_date_at,
         entrydescription as entry_description,
-        exchange_rate as exchange_rate, -- Why are we renaming this?
+        exchange_rate,
         itemid as item_id,
         itemname as item_name,
-        line_no as line_no, -- Why are we renaming this?
+        line_no,
         lineitem as line_item,
         locationid as location_id,
         locationname as location_name,
         offsetglaccountno as offset_gl_account_no,
         offsetglaccounttitle as offset_gl_account_title,
         recordtype as record_type,
-        state as state, -- Why are we renaming this?
+        state,
         totalpaid as total_item_paid,
         totalselected as total_selected,
         vendorid as vendor_id,

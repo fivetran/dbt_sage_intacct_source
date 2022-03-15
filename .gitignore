@@ -1,4 +1,3 @@
-## I have sometimes seen a .DS_Store appear on our repos. Not sure why, but it is always safest to include just in case.
 target/
 dbt_packages/
 logs/
