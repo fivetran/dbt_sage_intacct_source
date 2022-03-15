@@ -120,7 +120,7 @@ models:
         description: Days until due 
       - name: record_id
         description: ID of bill. Maps to GL_DETAIL.RECORDID, which has all the records belonging to that bill.
-      - name: record_no
+      - name: record_no ## This field is renamed, shouldn't we remove it here?
         description: Primary key
       - name: record_type
         description: Type of document
@@ -159,7 +159,7 @@ models:
         tests:
           - unique
           - not_null
-      - name: invoice
+      - name: invoice #Should this be invoice or invoice_id?
         description: Foreign key representing invoice ID, mapping to AR_INVOICE.RECORDNO
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
@@ -189,7 +189,7 @@ models:
         description: ID of department
       - name: department_name
         description: Name of department
-      - name: entry_date
+      - name: entry_date #Shouldn't this be entry_date_at?
         description: Timestamp of entry
       - name: entry_description
         description: Description of entry
@@ -246,7 +246,7 @@ models:
         description: The timestamp of when the data was last synced by Fivetran
       - name: au_created_at
         description: Timestamp of when user created the record #Fixed spelling
-      - name: base_curr
+      - name: base_curr ## Is this field in the table?
         description: Base currency
       - name: bill_to_pay_to_contact_name
         description: Name of bill to pay contact
