@@ -41,9 +41,10 @@ vars:
     sage_intacct_database: your_database_name
     sage_intacct_schema: your_schema_name 
 ```
+> We should also highlight in the passthrough columns section which tables this is enabled for. I can't easily tell that the passthrough is only for the gl_account table.
 ### Passthrough Columns
 This package allows users to add additional columns to the final model tables. 
-Columns passed through must be present in the downstream source tables. See 
+Columns passed through must be present in the upstream source tables. See 
 below for an example of how the passthrough columns should be configured within your `dbt_project.yml` file.
 
 ```yml

@@ -6,13 +6,16 @@ sources:
     database: "{% if target.type != 'spark' %}{{var('sage_intacct_database', target.database)}}{% endif %}"
     loader: fivetran
     loaded_at_field: _fivetran_synced
-    freshness:
-      warn_after: {count: 48, period: hour}
-      error_after: {count: 72, period: hour}
+    ## How did you decide the freshness period for these tables?
+    freshness: 
+      warn_after: {count: 48, period: hour} 
+      error_after: {count: 72, period: hour} 
 
 
     tables:
       - name: gl_detail
+        ## I am not sure I am following the description of this source. Would you be able to make this more clear. I think we should focus more on the fact that it is
+        ## a table that records all the company transactions. Where each transaction has the appropriate offsetting entry to balance.
         description: Records all general ledger transactions, each with its offset entry, with additional fields.
         columns:
           - name: _fivetran_deleted
@@ -30,15 +33,15 @@ sources:
           - name: batch_no
             description: What batch the transaction was part of
           - name: batch_title
-            description: Name of batch
+            description: Name of the batch ## Added "the" for better wording.
           - name: batchkey
             description: The individual batch number of the transaction
           - name: bookid
             description: ID of the book 
           - name: creditamount
-            description: If credit, the value
+            description: If credit, the value ## What happens if it isn't a credit? Is this null then? Can we add more clarification here
           - name: debitamount
-            description: If debit, the value
+            description: If debit, the value ## Same as the above
           - name: customerid
             description: ID of the customer
           - name: customername
@@ -60,13 +63,13 @@ sources:
           - name: recordid
             description: ID of record, which corresponds to the bill or invoice ID.
           - name: recordno
-            description: Primary key
+            description: Primary key ## Can we be more descriptive of this field. I think "unique identify of the entry" is more appropriate as Primary Key can be mis understood. Also, can you put this field as the first record in the source description.
           - name: recordtype
             description: Type of record, for example AP Bill
           - name: totaldue
             description: Value of amount due
           - name: totalentered
-            description: Value entered
+            description: Value entered #Value entered where?
           - name: totalpaid
             description: Value paid
           - name: tr_type
@@ -78,9 +81,9 @@ sources:
           - name: trx_debitamount
             description: If debit, transaction amount
           - name: vendorid
-            description: Id of vendor
+            description: Id of the vendor ## Added the for better wording
           - name: vendorname
-            description: Name of vendor
+            description: Name of the vendor ## Added the for better wording
           - name: whencreated
             description: Creation date as entered by user
           - name: whendue
@@ -91,7 +94,7 @@ sources:
             description: When transaction was paid
         
       - name: gl_account
-        description: A table of account details and their corresponding categories
+        description: A table of account details and their corresponding categories ## Can we highlight the grain of this table a bit cleared.
         columns: 
           - name: _fivetran_deleted
             description: The timestamp of when the data was deleted by Fivetran
@@ -122,29 +125,31 @@ sources:
           - name: normalbalance
             description: Debit or credit
           - name: recordno
-            description: Primary key
-          - name: requireclass
-            description: True or false
-          - name: requirecustomer
-            description: True or false
-          - name: requiredept
-            description: True or false
-          - name: requireemployee
-            description: True or false
-          - name: requireitem
-            description: True or false
-          - name: requireloc
-            description: True or false
-          - name: requireproject
-            description: True or false
-          - name: requirevendor
-            description: True or false
-          - name: requirewarehouse
-            description: True or false
-          - name: status
-            description: Active or inactive
-          - name: taxable
-            description: True or false
+            description: Primary key ## Can we be more descriptive of this field. I think "unique identify of the entry" is more appropriate as Primary Key can be mis understood. Also, can you put this field as the first record in the source description.
+          
+          ## For all of the below records, can we add more clarity to what they are indicating? True or False doesn't help me understand the purpose of the field.
+          # - name: requireclass
+          #   description: True or false
+          # - name: requirecustomer
+          #   description: True or false
+          # - name: requiredept
+          #   description: True or false
+          # - name: requireemployee
+          #   description: True or false
+          # - name: requireitem
+          #   description: True or false
+          # - name: requireloc
+          #   description: True or false
+          # - name: requireproject
+          #   description: True or false
+          # - name: requirevendor
+          #   description: True or false
+          # - name: requirewarehouse
+          #   description: True or false
+          # - name: status
+          #   description: Active or inactive
+          # - name: taxable
+          #   description: True or false
           - name: title
             description: Title of account
           - name: whencreated
@@ -161,7 +166,7 @@ sources:
           - name: _fivetran_synced
             description: The timestamp of when the data was last synced by Fivetran
           - name: auwhencreated
-            description: Timeestamp of when user created the record
+            description: Timestamp of when user created the record #Fixed spelling
           - name: basecurr
             description: Base currency
           - name: billtopaytocontactname
@@ -179,7 +184,7 @@ sources:
           - name: recordid
             description: ID of bill. Maps to GL_DETAIL.RECORDID, which has all the records belonging to that bill.
           - name: recordno
-            description: Primary key
+            description: Primary key ## Same comment as other PK fields
           - name: recordtype
             description: Type of document
           - name: shiptoreturntocontactname
@@ -195,9 +200,9 @@ sources:
           - name: totalpaid
             description: Amount paid 
           - name: vendorid
-            description: ID of vendor
+            description: ID of the vendor ## Added "the" for better wording
           - name: vendorname
-            description: Name of vendor
+            description: Name of the vendor ## Added "the" for better wording
           - name: whencreated
             description: Bill creation date as entered by user
           - name: whendue
@@ -217,35 +222,35 @@ sources:
           - name: accountkey
             description: Foreign key to GLACCOUNT.RECORDNO
           - name: accountno
-            description: ID of account
+            description: ID of the account
           - name: accounttitle
-            description: Name of account
+            description: Name of the account
           - name: amount
-            description: Value of bill item
+            description: Value of the bill item
           - name: basecurr
             description: Base currency
           - name: baselocation
             description: Base location
           - name: billable
-            description: True or false
+            description: True or false # Same comment regarding True or False not indicating what the field is
           - name: billed
-            description: True or false
+            description: True or false # Same comment regarding True or False not indicating what the field is
           - name: classid
-            description: ID of class
+            description: ID of the class
           - name: classname
-            description: Name of class
+            description: Name of the class
           - name: createdby
             description: Entity that created the record
           - name: currency
             description: Currency
           - name: customerid
-            description: ID of customer
+            description: ID of the customer
           - name: customername
             description: Name of customer
           - name: departmentid
-            description: ID of department
+            description: ID of the department
           - name: departmentname
-            description: Name of department
+            description: Name of the department
           - name: entry_date
             description: Date that record was entered
           - name: entrydescription
@@ -253,13 +258,13 @@ sources:
           - name: exchange_rate
             description: Exchange rate
           - name: itemid
-            description: ID of item
+            description: ID of the item
           - name: itemname
-            description: Name of item
+            description: Name of the item
           - name: line_no
             description: Line number of the item out of the overall bill 
           - name: lineitem
-            description: True or false
+            description: True or false # Same comment regarding True or False not indicating what the field is
           - name: locationid
             description: ID of location
           - name: locationname
@@ -269,13 +274,13 @@ sources:
           - name: offsetglaccounttitle
             description: Offsetting account tiel from GL_ACCOUNT
           - name: projectid
-            description: ID of project
+            description: ID of the project
           - name: projectname
-            description: Name of project
+            description: Name of the project
           - name: recordkey
             description: Foreign key mapping to AP_BILL.RECORDNO
           - name: recordno
-            description: Primary key 
+            description: Primary key # Same comment for PK
           - name: recordtype
             description: Type of record
           - name: state
@@ -285,9 +290,9 @@ sources:
           - name: totalselected
             description: Amount selected
           - name: vendorid
-            description: ID of vendor
+            description: ID of the vendor
           - name: vendorname
-            description: Name of vendor
+            description: Name of the vendor
           - name: whencreated
             description: Creation date as entered by user
           - name: whenmodified
@@ -313,9 +318,9 @@ sources:
           - name: currency
             description: Currency
           - name: customerid
-            description: ID of customer
+            description: ID of the customer
           - name: customername
-            description: Name of customer
+            description: Name of the customer
           - name: description
             description: Description
           - name: docnumber
@@ -323,13 +328,13 @@ sources:
           - name: due_in_days
             description: Days until due
           - name: megaentityid
-            description: ID of entity
+            description: ID of the entity
           - name: megaentityname
-            description: Name of entity
+            description: Name of the entity
           - name: recordid
             description: ID of invoice. Maps to GL_DETAIL.RECORDID, which has all the records belonging to that invoice.
           - name: recordno
-            description: Primary key 
+            description: Primary key #Same comment for PK description
           - name: recordtype
             description: Type of record
           - name: shiptoreturntocontactname
@@ -365,9 +370,9 @@ sources:
           - name: accountkey
             description: Foreign key to GLACCOUNT.RECORDNO
           - name: accountno
-            description: ID of account
+            description: ID of the account
           - name: accounttitle
-            description: Title of account
+            description: Title of the account
           - name: amount
             description: Value of transaction
           - name: basecurr
@@ -377,35 +382,35 @@ sources:
           - name: classid
             description: ID of class
           - name: classname
-            description: Name of class
+            description: Name of the class
           - name: currency
             description: Currency 
           - name: customerid
-            description: ID of customer
+            description: ID of the customer
           - name: customername
-            description: Name of customer
+            description: Name of the customer
           - name: departmentid
-            description: ID of department
+            description: ID of the department
           - name: departmentname
-            description: Name of department
+            description: Name of the department
           - name: entry_date
-            description: Timestamp of entry
+            description: Timestamp of the entry
           - name: entrydescription
-            description: Description of entry
+            description: Description of the entry
           - name: exchange_rate
             description: Exchange rate
           - name: itemid
-            description: ID of item
+            description: ID of the item
           - name: itemname
-            description: Name of item
+            description: Name of the item
           - name: line_no
             description: Line number of the item out of the overall invoice
           - name: lineitem
-            description: True or false
+            description: True or false #Same true or false comment
           - name: locationid
-            description: ID of location
+            description: ID of the location
           - name: locationname
-            description: Name of location
+            description: Name of the location
           - name: offsetglaccountno
             description: Offsetting account no from GL_ACCOUNT
           - name: offsetglaccounttitle
@@ -413,7 +418,7 @@ sources:
           - name: recordkey
             description: Foreign key mapping to AR_INVOICE.RECORDNO
           - name: recordno
-            description: Primary key
+            description: Primary key #Same primary key comment
           - name: recordtype
             description: Type of record
           - name: state
@@ -423,13 +428,13 @@ sources:
           - name: totalselected
             description: Amount selected
           - name: vendorid
-            description: ID of vendor
+            description: ID of the vendor
           - name: vendorname
-            description: Name of vendor
+            description: Name of the vendor
           - name: warehouseid
-            description: ID of warehouse
+            description: ID of the warehouse
           - name: warehousename
-            description: Name of warehouse
+            description: Name of the warehouse
           - name: whencreated
             description: Creation date as entered by user
           - name: whenmodified

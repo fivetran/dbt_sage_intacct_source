@@ -1,3 +1,4 @@
+## Please apply the same description updates I highlighted in src_sage_intacct.yml within this file.
 version: 2
 
 models:
@@ -67,7 +68,7 @@ models:
       - name: offset_gl_account_no
         description: Offsetting account no from GL_ACCOUNT
       - name: offset_gl_account_title
-        description: Offsetting account tiel from GL_ACCOUNT
+        description: Offsetting account title from GL_ACCOUNT # Updated spelling
       - name: record_type
         description: Type of record
       - name: state
@@ -102,7 +103,7 @@ models:
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
       - name: au_created_at
-        description: Timeestamp of when user created the record
+        description: Timestamp of when user created the record ## Fixed spelling
       - name: base_curr
         description: Base currency
       - name: bill_to_pay_to_contact_name
@@ -244,7 +245,7 @@ models:
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
       - name: au_created_at
-        description: Timeestamp of when user created the record
+        description: Timestamp of when user created the record #Fixed spelling
       - name: base_curr
         description: Base currency
       - name: bill_to_pay_to_contact_name
@@ -297,7 +298,7 @@ models:
         description: Posted date
 
   - name: stg_sage_intacct__gl_account
-    descrition: Record of each account with category detail and dates of importance.  
+    descrition: Record of each account with category detail and dates of importance.  ## I think description is misspelled here
     columns:
       - name: gl_account_id
         description: ID of account 

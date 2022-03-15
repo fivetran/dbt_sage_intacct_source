@@ -19,8 +19,9 @@ vars:
     ar_invoice_item:              "{{ source('sage_intacct','ar_invoice_item') }}"
     ar_invoice:                   "{{ source('sage_intacct','ar_invoice') }}"
     
-    account_pass_through_columns: []
-    
-clean-targets:
-    - target
-    - dbt_modules
+    account_pass_through_columns: [] ## Reminder to update the name
+
+## We actually don't need the below configs. The customer's dbt_project.yml will always override these.
+# clean-targets:
+#     - target
+#     - dbt_modules

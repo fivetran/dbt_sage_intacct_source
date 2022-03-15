@@ -16,7 +16,7 @@ fields as (
             )
         }}
         --The below script allows for pass through columns.
-        {% if var('account_pass_through_columns') %}
+        {% if var('account_pass_through_columns') %} -- We should update the name of the passthrough column variable to be specific to sage. Maybe sage_account_passthrough_columns?
         ,
         {{ var('account_pass_through_columns') | join (", ")}}
 
@@ -51,7 +51,7 @@ final as (
     whenmodified as modified_at	
 
     --The below script allows for pass through columns.
-    {% if var('account_pass_through_columns') %}
+    {% if var('account_pass_through_columns') %} -- We should update the name of the passthrough column variable to be specific to sage. Maybe sage_account_passthrough_columns?
     ,
     {{ var('account_pass_through_columns') | join (", ")}}
 

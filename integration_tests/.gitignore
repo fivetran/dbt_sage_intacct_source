@@ -1,3 +1,4 @@
+## Since dbt v1 the dbt_modules folder has been renamed to be dbt_packages. We should add that in here as well.
 target/
 dbt_modules/
 logs/
