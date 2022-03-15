@@ -9,11 +9,11 @@ This package enriches your Fivetran data by doing the following:
 - Models staging tables, which will be used in our transform package
 
 ## Models
-This package contains staging models, designed to work simultaneously with our [Sage Intacct transform package](https://github.com/fivetran/dbt_sage_intacct).  The staging models are designed to:
+This package contains staging models, designed to work simultaneously with our [Sage Intacct transform package](https://github.com/fivetran/dbt_sage_intacct). The staging models are designed to:
 - Remove any rows that are soft-deleted
 - Name columns consistently across all packages:
-    - Boolean fields are prefixed with `is_` or `has_`
-    - Timestamps are appended with `_at`
+    - Boolean fields are prefixed with `is_` or `has_`.
+    - Timestamps are appended with `_at`.
     - ID primary keys are prefixed with the name of the table. For example, the `gl_detail` table's recordno column is renamed `gl_detail_id`.
     - Foreign keys include the table that they refer to. For example, ap_bill_item's `recordkey` is named `bill_id`. 
 
