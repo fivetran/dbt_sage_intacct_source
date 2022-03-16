@@ -6,7 +6,6 @@ sources:
     database: "{% if target.type != 'spark' %}{{var('sage_intacct_database', target.database)}}{% endif %}"
     loader: fivetran
     loaded_at_field: _fivetran_synced
-    ## How did you decide the freshness period for these tables?
     freshness: 
       warn_after: {count: 48, period: hour} 
       error_after: {count: 72, period: hour} 
@@ -17,7 +16,7 @@ sources:
         description: Records all company transactions, where each has its offset entry to balance. 
         columns:
           - name: recordno
-            description: Unique identity of the entry.
+            description: Unique identity of the entry
           - name: _fivetran_deleted
             description: The timestamp of when the data was deleted by Fivetran
           - name: _fivetran_synced
@@ -39,9 +38,9 @@ sources:
           - name: bookid
             description: ID of the book 
           - name: creditamount
-            description: If credit, the value. Otherwise 0. 
+            description: If credit, the value. Otherwise 0
           - name: debitamount
-            description: If debit, the value. Otherwise 0.
+            description: If debit, the value. Otherwise 0
           - name: customerid
             description: ID of the customer
           - name: customername
@@ -61,7 +60,7 @@ sources:
           - name: modified
             description: Timestamp of when modified
           - name: recordid
-            description: ID of record, which corresponds to the bill or invoice ID.
+            description: ID of record, which corresponds to the bill or invoice ID
           - name: recordtype
             description: Type of record, for example AP Bill
           - name: totaldue
@@ -75,9 +74,9 @@ sources:
           - name: trx_amount
             description: Transaction amount
           - name: trx_creditamount
-            description: If credit, transaction amount. Otherwise, 0.
+            description: If credit, transaction amount. Otherwise, 0
           - name: trx_debitamount
-            description: If debit, transaction amount. Otherwise, 0.
+            description: If debit, transaction amount. Otherwise, 0
           - name: vendorid
             description: Id of the vendor 
           - name: vendorname
@@ -92,6 +91,7 @@ sources:
             description: When transaction was paid
         
       - name: gl_account
+        freshness: null 
         description: Records each existing account, with their corresponding categories.
         columns: 
           - name: recordno
@@ -125,27 +125,27 @@ sources:
           - name: normalbalance
             description: Debit or credit 
           - name: requireclass
-            description: Boolean of whether to require class.
+            description: Boolean of whether to require class
           - name: requirecustomer
-            description: Boolean of whether to require customer.
+            description: Boolean of whether to require customer
           - name: requiredept
-            description: Boolean of whether to require department.
+            description: Boolean of whether to require department
           - name: requireemployee
-            description: Boolean of whether to require employee.
+            description: Boolean of whether to require employee
           - name: requireitem
-            description: Boolean of whether to require item.
+            description: Boolean of whether to require item
           - name: requireloc
-            description: Boolean of whether to require location.
+            description: Boolean of whether to require location
           - name: requireproject
-            description: Boolean of whether to require project.
+            description: Boolean of whether to require project
           - name: requirevendor
-            description: Boolean of whether to require vendor.
+            description: Boolean of whether to require vendor
           - name: requirewarehouse
-            description: Boolean of whether to require warehouse.
+            description: Boolean of whether to require warehouse
           - name: status
             description: Active or inactive
           - name: taxable
-            description: Boolean for whether account is taxable.
+            description: Boolean for whether account is taxable
           - name: title
             description: Title of account
           - name: whencreated
@@ -158,7 +158,7 @@ sources:
         description: Records each bill that is owed to vendors
         columns:
           - name: recordno
-            description: Unique identity of the entry.
+            description: Unique identity of the entry
           - name: _fivetran_deleted
             description: The timestamp of when the data was deleted by Fivetran
           - name: _fivetran_synced
@@ -180,7 +180,7 @@ sources:
           - name: due_in_days
             description: Days until due 
           - name: recordid
-            description: ID of bill. Maps to GL_DETAIL.RECORDID, which has all the records belonging to that bill.
+            description: ID of bill. Maps to GL_DETAIL.RECORDID, which has all the records belonging to that bill
           - name: recordtype
             description: Type of document
           - name: shiptoreturntocontactname
@@ -214,7 +214,7 @@ sources:
         description: Records each item of each bill owed
         columns: 
           - name: recordno
-            description: Unique identity of the entry.
+            description: Unique identity of the entry
           - name: _fivetran_synced
             description: The timestamp of when the data was last synced by Fivetran
           - name: accountkey
@@ -230,9 +230,9 @@ sources:
           - name: baselocation
             description: Base location
           - name: billable
-            description: Boolean for whether item is billable.
+            description: Boolean for whether item is billable
           - name: billed
-            description: Boolean for whether item has been billed. 
+            description: Boolean for whether item has been billed
           - name: classid
             description: ID of the class
           - name: classname
@@ -262,7 +262,7 @@ sources:
           - name: line_no
             description: Line number of the item out of the overall bill 
           - name: lineitem
-            description: Boolean for whether it's a line item. 
+            description: Boolean for whether it's a line item
           - name: locationid
             description: ID of location
           - name: locationname
@@ -298,7 +298,7 @@ sources:
         description: Records each invoice that is owed by customers
         columns: 
           - name: recordno
-            description: Unique identity of the entry.
+            description: Unique identity of the entry
           - name: _fivetran_deleted
             description: The timestamp of when the data was deleted by Fivetran
           - name: _fivetran_synced
@@ -330,7 +330,7 @@ sources:
           - name: megaentityname
             description: Name of the entity
           - name: recordid
-            description: ID of invoice. Maps to GL_DETAIL.RECORDID, which has all the records belonging to that invoice.
+            description: ID of invoice. Maps to GL_DETAIL.RECORDID, which has all the records belonging to that invoice
           - name: recordtype
             description: Type of record
           - name: shiptoreturntocontactname
@@ -362,7 +362,7 @@ sources:
         description: Records each item of each invoice owed by customers
         columns: 
           - name: recordno
-            description: Unique identity of the entry.
+            description: Unique identity of the entry
           - name: _fivetran_synced
             description: The timestamp of when the data was last synced by Fivetran
           - name: accountkey
@@ -404,7 +404,7 @@ sources:
           - name: line_no
             description: Line number of the item out of the overall invoice
           - name: lineitem
-            description: Boolean for whether it's a line item. 
+            description: Boolean for whether it's a line item
           - name: locationid
             description: ID of the location
           - name: locationname
