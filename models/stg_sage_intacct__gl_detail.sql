@@ -33,6 +33,7 @@ final as (
         bookid as book_id,
         creditamount as credit_amount,
         debitamount as debit_amount,
+        currency,
         customerid as customer_id,
         customername as customer_name,
         description,

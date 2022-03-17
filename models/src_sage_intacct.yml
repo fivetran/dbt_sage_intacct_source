@@ -45,6 +45,8 @@ sources:
             description: ID of the customer
           - name: customername
             description: Name of the customer
+          - name: currency
+            description: Currency of transaction
           - name: description
             description: Description of the transaction
           - name: docnumber
