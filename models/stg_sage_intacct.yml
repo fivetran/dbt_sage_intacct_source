@@ -27,9 +27,9 @@ models:
       - name: base_location
         description: Base location
       - name: billable
-        description: True or false
+        description: Boolean for whether item is billable.
       - name: billed
-        description: True or false
+        description: Boolean for whether item has been billed. 
       - name: class_id
         description: ID of class
       - name: class_name
@@ -53,13 +53,13 @@ models:
       - name: exchange_rate
         description: Exchange rate
       - name: item_id
-        description: ID of item 
+        description: ID of the item 
       - name: item_name
-        description: Name of item
+        description: Name of the item
       - name: line_no
         description: Line number of the item out of the overall bill 
       - name: line_item
-        description: True or false
+        description: Boolean for whether it's a line item. 
       - name: location_id
         description: ID of location
       - name: location_name
@@ -67,7 +67,7 @@ models:
       - name: offset_gl_account_no
         description: Offsetting account no from GL_ACCOUNT
       - name: offset_gl_account_title
-        description: Offsetting account tiel from GL_ACCOUNT
+        description: Offsetting account title from GL_ACCOUNT 
       - name: record_type
         description: Type of record
       - name: state
@@ -77,17 +77,17 @@ models:
       - name: total_selected
         description: Amount selected
       - name: vendor_id
-        description: ID of vendor
+        description: ID of the vendor
       - name: vendor_name
-        description: Name of vendor
+        description: Name of the vendor
       - name: created_at
         description: Creation date as entered by user
       - name: modified_at
         description: Modified date
       - name: project_name
-        description: Name of project
+        description: Name of the project
       - name: project_id
-        description: ID of project
+        description: ID of the project
 
   - name: stg_sage_intacct__ap_bill
     description: Record of each bill with payment information. 
@@ -102,7 +102,7 @@ models:
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
       - name: au_created_at
-        description: Timeestamp of when user created the record
+        description: Timestamp of when user created the record
       - name: base_curr
         description: Base currency
       - name: bill_to_pay_to_contact_name
@@ -119,8 +119,6 @@ models:
         description: Days until due 
       - name: record_id
         description: ID of bill. Maps to GL_DETAIL.RECORDID, which has all the records belonging to that bill.
-      - name: record_no
-        description: Primary key
       - name: record_type
         description: Type of document
       - name: ship_to_return_to_contact_name
@@ -136,9 +134,9 @@ models:
       - name: total_paid
         description: Amount paid 
       - name: vendor_id
-        description: ID of vendor
+        description: ID of the vendor
       - name: vendor_name
-        description: Name of vendor
+        description: Name of the vendor
       - name: created_at
         description: Bill creation date as entered by user
       - name: due_at
@@ -158,7 +156,7 @@ models:
         tests:
           - unique
           - not_null
-      - name: invoice
+      - name: invoice_id
         description: Foreign key representing invoice ID, mapping to AR_INVOICE.RECORDNO
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
@@ -188,20 +186,20 @@ models:
         description: ID of department
       - name: department_name
         description: Name of department
-      - name: entry_date
+      - name: entry_date_at
         description: Timestamp of entry
       - name: entry_description
         description: Description of entry
       - name: exchange_rate
         description: Exchange rate
       - name: item_id
-        description: ID of item
+        description: ID of the item
       - name: item_name
-        description: Name of item
+        description: Name of the item
       - name: line_no
         description: Line number of the item out of the overall invoice
       - name: line_item
-        description: True or false
+        description: Boolean for whether it's a line item. 
       - name: location_id
         description: ID of location
       - name: location_name
@@ -219,9 +217,9 @@ models:
       - name: total_selected
         description: Amount selected
       - name: vendor_id
-        description: ID of vendor
+        description: ID of the vendor
       - name: vendor_name
-        description: Name of vendor
+        description: Name of the vendor
       - name: warehouse_id
         description: ID of warehouse
       - name: warehouse_name
@@ -244,9 +242,7 @@ models:
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
       - name: au_created_at
-        description: Timeestamp of when user created the record
-      - name: base_curr
-        description: Base currency
+        description: Timestamp of when user created the record
       - name: bill_to_pay_to_contact_name
         description: Name of bill to pay contact
       - name: bill_to_pay_to_key
@@ -297,7 +293,7 @@ models:
         description: Posted date
 
   - name: stg_sage_intacct__gl_account
-    descrition: Record of each account with category detail and dates of importance.  
+    description: Records each existing account, with their corresponding categories.
     columns:
       - name: gl_account_id
         description: ID of account 
@@ -335,7 +331,7 @@ models:
       - name: status
         description: Active or inactive
       - name: taxable
-        description: True or false
+        description: Boolean for whether account is taxable.
       - name: title
         description: Title of account
       - name: created_at
@@ -344,7 +340,7 @@ models:
         description: Modified at timestamp
         
   - name: stg_sage_intacct__gl_detail
-    description: Record of all general ledger transactions, each with its offset entry, with additional fields.
+    description: Records all company transactions, where each has its offset entry to balance. 
     columns:
       - name: gl_detail_id
         description: Unique identifier of the gl_detail entry.
@@ -368,9 +364,9 @@ models:
       - name: book_id
         description: ID of the book 
       - name: credit_amount
-        description: If credit, the value
+        description: If credit, the value. Otherwise, 0.
       - name: debit_amount
-        description: If debit, the value
+        description: If debit, the value. Otherwise, 0.
       - name: customer_id
         description: ID of the customer
       - name: customer_name
@@ -394,7 +390,7 @@ models:
       - name: total_due
         description: Value of amount due
       - name: total_entered
-        description: Value entered
+        description: Value entered by user
       - name: total_paid
         description: Value paid
       - name: tr_type
@@ -406,9 +402,9 @@ models:
       - name: trx_debit_amount
         description: If debit, transaction amount
       - name: vendor_id
-        description: Id of vendor
+        description: Id of the vendor
       - name: vendor_name
-        description: Name of vendor
+        description: Name of the vendor
       - name: created_at
         description: Creation date as entered by user
       - name: due_at

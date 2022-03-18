@@ -41,10 +41,10 @@ vars:
     sage_intacct_database: your_database_name
     sage_intacct_schema: your_schema_name 
 ```
+
 ### Passthrough Columns
-This package allows users to add additional columns to the final model tables. 
-Columns passed through must be present in the downstream source tables. See 
-below for an example of how the passthrough columns should be configured within your `dbt_project.yml` file.
+This package allows users to add additional columns to the `stg_sage_intacct__gl_account` table. 
+Columns passed through must be present in the upstream source tables. See below for an example of how the passthrough columns should be configured within your `dbt_project.yml` file.
 
 ```yml
 # dbt_project.yml
@@ -52,7 +52,7 @@ below for an example of how the passthrough columns should be configured within 
 ...
 vars:
   sage_intacct_source:
-    account_pass_through_columns: ['new_custom_field', 'custom_field_2']
+    sage_account_pass_through_columns: ['new_custom_field', 'custom_field_2']
 ```
 
 ### Change the Build Schema
