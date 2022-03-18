@@ -1,5 +1,3 @@
--- I applied some changes in this model to fit with our style standards. Please update the other staging models to fit the same style.
--- Specifically we want the fields we are selecting from to be indented once and also only rename fields that are actually being renamed.
 with base as (
 
     select * 
