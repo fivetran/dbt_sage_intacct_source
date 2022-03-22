@@ -7,6 +7,9 @@ This package enriches your Fivetran data by doing the following:
 - Adds descriptions to tables and columns that are synced using Fivetran
 - Adds column-level testing where applicable. For example, all ID fields are tested for non-null values.
 - Models staging tables, which will be used in our transform package
+## Compatibility
+
+> Please be aware that the [dbt_sage_intacct](https://github.com/fivetran/dbt_sage_intacct) and [dbt_sage_intacct_source](https://github.com/fivetran/dbt_sage_intacct_source) packages were developed with single-currency company data. As such, the package models will not reflect accurate totals if your account has multi-currency enabled. If multi-currency functionality is desired, we welcome discussion to support this in a future version. 
 
 ## Models
 This package contains staging models, designed to work simultaneously with our [Sage Intacct transform package](https://github.com/fivetran/dbt_sage_intacct).  The staging models are designed to:
