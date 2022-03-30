@@ -1,5 +1,4 @@
 {% macro get_gl_detail_columns() %}
-
 {% set columns = [
     {"name": "_fivetran_deleted", "datatype": "boolean"},
     {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
@@ -24,6 +23,10 @@
     {"name": "description", "datatype": dbt_utils.type_string()},
     {"name": "docnumber", "datatype": dbt_utils.type_string()},
     {"name": "document", "datatype": dbt_utils.type_string()},
+    {"name": "entry_date", "datatype": "date"},
+    {"name": "entry_state", "datatype": dbt_utils.type_string()},
+    {"name": "entrydescription", "datatype": dbt_utils.type_string()},
+    {"name": "line_no", "datatype": dbt_utils.type_int()},
     {"name": "locationid", "datatype": dbt_utils.type_string()},
     {"name": "locationname", "datatype": dbt_utils.type_string()},
     {"name": "modified", "datatype": dbt_utils.type_timestamp()},
@@ -45,7 +48,5 @@
     {"name": "whenmodified", "datatype": dbt_utils.type_timestamp()},
     {"name": "whenpaid", "datatype": "date"}
 ] %}
-
 {{ return(columns) }}
-
 {% endmacro %}
