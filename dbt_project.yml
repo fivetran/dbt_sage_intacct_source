@@ -20,6 +20,7 @@ vars:
     ar_invoice:                   "{{ source('sage_intacct','ar_invoice') }}"
     
     account_pass_through_columns: []
+    gl_pass_through_columns: []
     
 clean-targets:
     - target
