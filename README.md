@@ -7,13 +7,16 @@ This package enriches your Fivetran data by doing the following:
 - Adds descriptions to tables and columns that are synced using Fivetran
 - Adds column-level testing where applicable. For example, all ID fields are tested for non-null values.
 - Models staging tables, which will be used in our transform package
+## Compatibility
+
+> Please be aware that the [dbt_sage_intacct](https://github.com/fivetran/dbt_sage_intacct) and [dbt_sage_intacct_source](https://github.com/fivetran/dbt_sage_intacct_source) packages were developed with single-currency company data. As such, the package models will not reflect accurate totals if your account has multi-currency enabled. If multi-currency functionality is desired, we welcome discussion to support this in a future version. 
 
 ## Models
-This package contains staging models, designed to work simultaneously with our [Sage Intacct transform package](https://github.com/fivetran/dbt_sage_intacct).  The staging models are designed to:
+This package contains staging models, designed to work simultaneously with our [Sage Intacct transform package](https://github.com/fivetran/dbt_sage_intacct). The staging models are designed to:
 - Remove any rows that are soft-deleted
 - Name columns consistently across all packages:
-    - Boolean fields are prefixed with `is_` or `has_`
-    - Timestamps are appended with `_at`
+    - Boolean fields are prefixed with `is_` or `has_`.
+    - Timestamps are appended with `_at`.
     - ID primary keys are prefixed with the name of the table. For example, the `gl_detail` table's recordno column is renamed `gl_detail_id`.
     - Foreign keys include the table that they refer to. For example, ap_bill_item's `recordkey` is named `bill_id`. 
 
@@ -41,10 +44,10 @@ vars:
     sage_intacct_database: your_database_name
     sage_intacct_schema: your_schema_name 
 ```
+
 ### Passthrough Columns
-This package allows users to add additional columns to the final model tables. 
-Columns passed through must be present in the downstream source tables. See 
-below for an example of how the passthrough columns should be configured within your `dbt_project.yml` file.
+This package allows users to add additional columns to the `stg_sage_intacct__gl_account` table. 
+Columns passed through must be present in the upstream source tables. See below for an example of how the passthrough columns should be configured within your `dbt_project.yml` file.
 
 ```yml
 # dbt_project.yml
@@ -52,7 +55,7 @@ below for an example of how the passthrough columns should be configured within 
 ...
 vars:
   sage_intacct_source:
-    account_pass_through_columns: ['new_custom_field', 'custom_field_2']
+    sage_account_pass_through_columns: ['new_custom_field', 'custom_field_2']
 ```
 
 ### Disabling and Enabling Models

@@ -6,15 +6,17 @@ sources:
     database: "{% if target.type != 'spark' %}{{var('sage_intacct_database', target.database)}}{% endif %}"
     loader: fivetran
     loaded_at_field: _fivetran_synced
-    freshness:
-      warn_after: {count: 48, period: hour}
-      error_after: {count: 72, period: hour}
+    freshness: 
+      warn_after: {count: 48, period: hour} 
+      error_after: {count: 72, period: hour} 
 
 
     tables:
       - name: gl_detail
-        description: Records all general ledger transactions, each with its offset entry, with additional fields.
+        description: Records all company transactions, where each has its offset entry to balance. 
         columns:
+          - name: recordno
+            description: Unique identity of the entry
           - name: _fivetran_deleted
             description: The timestamp of when the data was deleted by Fivetran
           - name: _fivetran_synced
@@ -30,19 +32,21 @@ sources:
           - name: batch_no
             description: What batch the transaction was part of
           - name: batch_title
-            description: Name of batch
+            description: Name of the batch 
           - name: batchkey
             description: The individual batch number of the transaction
           - name: bookid
             description: ID of the book 
           - name: creditamount
-            description: If credit, the value
+            description: If credit, the value. Otherwise 0
           - name: debitamount
-            description: If debit, the value
+            description: If debit, the value. Otherwise 0
           - name: customerid
             description: ID of the customer
           - name: customername
             description: Name of the customer
+          - name: currency
+            description: Currency of transaction
           - name: description
             description: Description of the transaction
           - name: docnumber
@@ -58,15 +62,13 @@ sources:
           - name: modified
             description: Timestamp of when modified
           - name: recordid
-            description: ID of record, which corresponds to the bill or invoice ID.
-          - name: recordno
-            description: Primary key
+            description: ID of record, which corresponds to the bill or invoice ID
           - name: recordtype
             description: Type of record, for example AP Bill
           - name: totaldue
             description: Value of amount due
           - name: totalentered
-            description: Value entered
+            description: Value entered by user.
           - name: totalpaid
             description: Value paid
           - name: tr_type
@@ -74,13 +76,13 @@ sources:
           - name: trx_amount
             description: Transaction amount
           - name: trx_creditamount
-            description: If credit, transaction amount
+            description: If credit, transaction amount. Otherwise, 0
           - name: trx_debitamount
-            description: If debit, transaction amount
+            description: If debit, transaction amount. Otherwise, 0
           - name: vendorid
-            description: Id of vendor
+            description: Id of the vendor 
           - name: vendorname
-            description: Name of vendor
+            description: Name of the vendor
           - name: whencreated
             description: Creation date as entered by user
           - name: whendue
@@ -91,8 +93,11 @@ sources:
             description: When transaction was paid
         
       - name: gl_account
-        description: A table of account details and their corresponding categories
+        freshness: null 
+        description: Records each existing account, with their corresponding categories.
         columns: 
+          - name: recordno
+            description: Unique identity of the entry
           - name: _fivetran_deleted
             description: The timestamp of when the data was deleted by Fivetran
           - name: _fivetran_synced
@@ -120,31 +125,29 @@ sources:
           - name: modifiedby
             description: Who modified the record
           - name: normalbalance
-            description: Debit or credit
-          - name: recordno
-            description: Primary key
+            description: Debit or credit 
           - name: requireclass
-            description: True or false
+            description: Boolean of whether to require class
           - name: requirecustomer
-            description: True or false
+            description: Boolean of whether to require customer
           - name: requiredept
-            description: True or false
+            description: Boolean of whether to require department
           - name: requireemployee
-            description: True or false
+            description: Boolean of whether to require employee
           - name: requireitem
-            description: True or false
+            description: Boolean of whether to require item
           - name: requireloc
-            description: True or false
+            description: Boolean of whether to require location
           - name: requireproject
-            description: True or false
+            description: Boolean of whether to require project
           - name: requirevendor
-            description: True or false
+            description: Boolean of whether to require vendor
           - name: requirewarehouse
-            description: True or false
+            description: Boolean of whether to require warehouse
           - name: status
             description: Active or inactive
           - name: taxable
-            description: True or false
+            description: Boolean for whether account is taxable
           - name: title
             description: Title of account
           - name: whencreated
@@ -156,12 +159,14 @@ sources:
       - name: ap_bill
         description: Records each bill that is owed to vendors
         columns:
+          - name: recordno
+            description: Unique identity of the entry
           - name: _fivetran_deleted
             description: The timestamp of when the data was deleted by Fivetran
           - name: _fivetran_synced
             description: The timestamp of when the data was last synced by Fivetran
           - name: auwhencreated
-            description: Timeestamp of when user created the record
+            description: Timestamp of when user created the record
           - name: basecurr
             description: Base currency
           - name: billtopaytocontactname
@@ -177,9 +182,7 @@ sources:
           - name: due_in_days
             description: Days until due 
           - name: recordid
-            description: ID of bill. Maps to GL_DETAIL.RECORDID, which has all the records belonging to that bill.
-          - name: recordno
-            description: Primary key
+            description: ID of bill. Maps to GL_DETAIL.RECORDID, which has all the records belonging to that bill
           - name: recordtype
             description: Type of document
           - name: shiptoreturntocontactname
@@ -195,9 +198,9 @@ sources:
           - name: totalpaid
             description: Amount paid 
           - name: vendorid
-            description: ID of vendor
+            description: ID of the vendor
           - name: vendorname
-            description: Name of vendor
+            description: Name of the vendor
           - name: whencreated
             description: Bill creation date as entered by user
           - name: whendue
@@ -212,40 +215,42 @@ sources:
       - name: ap_bill_item
         description: Records each item of each bill owed
         columns: 
+          - name: recordno
+            description: Unique identity of the entry
           - name: _fivetran_synced
             description: The timestamp of when the data was last synced by Fivetran
           - name: accountkey
             description: Foreign key to GLACCOUNT.RECORDNO
           - name: accountno
-            description: ID of account
+            description: ID of the account
           - name: accounttitle
-            description: Name of account
+            description: Name of the account
           - name: amount
-            description: Value of bill item
+            description: Value of the bill item
           - name: basecurr
             description: Base currency
           - name: baselocation
             description: Base location
           - name: billable
-            description: True or false
+            description: Boolean for whether item is billable
           - name: billed
-            description: True or false
+            description: Boolean for whether item has been billed
           - name: classid
-            description: ID of class
+            description: ID of the class
           - name: classname
-            description: Name of class
+            description: Name of the class
           - name: createdby
             description: Entity that created the record
           - name: currency
             description: Currency
           - name: customerid
-            description: ID of customer
+            description: ID of the customer
           - name: customername
             description: Name of customer
           - name: departmentid
-            description: ID of department
+            description: ID of the department
           - name: departmentname
-            description: Name of department
+            description: Name of the department
           - name: entry_date
             description: Date that record was entered
           - name: entrydescription
@@ -253,13 +258,13 @@ sources:
           - name: exchange_rate
             description: Exchange rate
           - name: itemid
-            description: ID of item
+            description: ID of the item
           - name: itemname
-            description: Name of item
+            description: Name of the item
           - name: line_no
             description: Line number of the item out of the overall bill 
           - name: lineitem
-            description: True or false
+            description: Boolean for whether it's a line item
           - name: locationid
             description: ID of location
           - name: locationname
@@ -267,15 +272,13 @@ sources:
           - name: offsetglaccountno
             description: Offsetting account no from GL_ACCOUNT
           - name: offsetglaccounttitle
-            description: Offsetting account tiel from GL_ACCOUNT
+            description: Offsetting account title from GL_ACCOUNT
           - name: projectid
-            description: ID of project
+            description: ID of the project
           - name: projectname
-            description: Name of project
+            description: Name of the project
           - name: recordkey
             description: Foreign key mapping to AP_BILL.RECORDNO
-          - name: recordno
-            description: Primary key 
           - name: recordtype
             description: Type of record
           - name: state
@@ -285,9 +288,9 @@ sources:
           - name: totalselected
             description: Amount selected
           - name: vendorid
-            description: ID of vendor
+            description: ID of the vendor
           - name: vendorname
-            description: Name of vendor
+            description: Name of the vendor
           - name: whencreated
             description: Creation date as entered by user
           - name: whenmodified
@@ -296,12 +299,14 @@ sources:
       - name: ar_invoice
         description: Records each invoice that is owed by customers
         columns: 
+          - name: recordno
+            description: Unique identity of the entry
           - name: _fivetran_deleted
             description: The timestamp of when the data was deleted by Fivetran
           - name: _fivetran_synced
             description: The timestamp of when the data was last synced by Fivetran
           - name: auwhencreated
-            description: Timeestamp of when user created the record
+            description: Timestamp of when user created the record
           - name: basecurr
             description: Base currency
           - name: billtopaytocontactname
@@ -313,9 +318,9 @@ sources:
           - name: currency
             description: Currency
           - name: customerid
-            description: ID of customer
+            description: ID of the customer
           - name: customername
-            description: Name of customer
+            description: Name of the customer
           - name: description
             description: Description
           - name: docnumber
@@ -323,13 +328,11 @@ sources:
           - name: due_in_days
             description: Days until due
           - name: megaentityid
-            description: ID of entity
+            description: ID of the entity
           - name: megaentityname
-            description: Name of entity
+            description: Name of the entity
           - name: recordid
-            description: ID of invoice. Maps to GL_DETAIL.RECORDID, which has all the records belonging to that invoice.
-          - name: recordno
-            description: Primary key 
+            description: ID of invoice. Maps to GL_DETAIL.RECORDID, which has all the records belonging to that invoice
           - name: recordtype
             description: Type of record
           - name: shiptoreturntocontactname
@@ -360,14 +363,16 @@ sources:
       - name: ar_invoice_item
         description: Records each item of each invoice owed by customers
         columns: 
+          - name: recordno
+            description: Unique identity of the entry
           - name: _fivetran_synced
             description: The timestamp of when the data was last synced by Fivetran
           - name: accountkey
             description: Foreign key to GLACCOUNT.RECORDNO
           - name: accountno
-            description: ID of account
+            description: ID of the account
           - name: accounttitle
-            description: Title of account
+            description: Title of the account
           - name: amount
             description: Value of transaction
           - name: basecurr
@@ -377,43 +382,41 @@ sources:
           - name: classid
             description: ID of class
           - name: classname
-            description: Name of class
+            description: Name of the class
           - name: currency
             description: Currency 
           - name: customerid
-            description: ID of customer
+            description: ID of the customer
           - name: customername
-            description: Name of customer
+            description: Name of the customer
           - name: departmentid
-            description: ID of department
+            description: ID of the department
           - name: departmentname
-            description: Name of department
+            description: Name of the department
           - name: entry_date
-            description: Timestamp of entry
+            description: Timestamp of the entry
           - name: entrydescription
-            description: Description of entry
+            description: Description of the entry
           - name: exchange_rate
             description: Exchange rate
           - name: itemid
-            description: ID of item
+            description: ID of the item
           - name: itemname
-            description: Name of item
+            description: Name of the item
           - name: line_no
             description: Line number of the item out of the overall invoice
           - name: lineitem
-            description: True or false
+            description: Boolean for whether it's a line item
           - name: locationid
-            description: ID of location
+            description: ID of the location
           - name: locationname
-            description: Name of location
+            description: Name of the location
           - name: offsetglaccountno
             description: Offsetting account no from GL_ACCOUNT
           - name: offsetglaccounttitle
             description: Offsetting account title from GL_ACCOUNT
           - name: recordkey
             description: Foreign key mapping to AR_INVOICE.RECORDNO
-          - name: recordno
-            description: Primary key
           - name: recordtype
             description: Type of record
           - name: state
@@ -423,13 +426,13 @@ sources:
           - name: totalselected
             description: Amount selected
           - name: vendorid
-            description: ID of vendor
+            description: ID of the vendor
           - name: vendorname
-            description: Name of vendor
+            description: Name of the vendor
           - name: warehouseid
-            description: ID of warehouse
+            description: ID of the warehouse
           - name: warehousename
-            description: Name of warehouse
+            description: Name of the warehouse
           - name: whencreated
             description: Creation date as entered by user
           - name: whenmodified
