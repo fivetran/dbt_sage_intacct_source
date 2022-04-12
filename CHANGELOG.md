@@ -1,7 +1,7 @@
 # dbt_sage_intacct_source v0.1.1
- 🎉 Additional features 🎉
+ 
 ### Updates
-Include additional fields in the `gl_detail` model and exclude fivetran-deleted rows in the staging models. 
+- Include additional fields in the `gl_detail` model and exclude fivetran-deleted rows in the staging models. 
 --
 # dbt_sage_intacct_source v0.1.0
 
