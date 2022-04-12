@@ -56,3 +56,4 @@ final as (
 )
 
 select * from final
+where _fivetran_deleted = false
