@@ -29,6 +29,7 @@ final as (
     
     select 
         recordno as gl_detail_id,
+        _fivetran_deleted,
         cast(accountno as {{ dbt_utils.type_string() }}) as account_no,
         accounttitle as account_title,
         amount,
