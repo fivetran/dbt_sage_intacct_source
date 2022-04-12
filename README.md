@@ -60,7 +60,7 @@ vars:
 
 ### Disabling and Enabling Models
 
-When setting up your Sage Intacct Source (Sage) connection in Fivetran, it is possible that not every table this package expects will be synced. This can occur because you either don't use that functionality in Sage or have actively decided to not sync some tables. In order to disable the relevant functionality in the package, you will need to add the relevant variables.
+When setting up your Sage Intacct connection in Fivetran, it is possible that not every table this package expects will be synced. This can occur because you either don't use that functionality in Sage or have actively decided to not sync some tables. In order to disable the relevant functionality in the package, you will need to add the relevant variables.
 
 By default, all variables are assumed to be `true`. You only need to add variables for the tables you would like to disable:
 
@@ -71,6 +71,7 @@ config-version: 2
 
 vars:
     sage_intacct__using_invoices: false                 # default is true
+    sage_intacct__using_bills: false                    # default is true
 ```
 
 
