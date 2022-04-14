@@ -16,9 +16,9 @@ fields as (
             )
         }}
         --The below script allows for pass through columns.
-        {% if var('sage_account_pass_through_columns') %} 
+        {% if var('sage_gl_pass_through_columns') %} 
         ,
-        {{ var('sage_account_pass_through_columns') | join (", ")}}
+        {{ var('sage_gl_pass_through_columns') | join (", ")}}
 
         {% endif %}
         
