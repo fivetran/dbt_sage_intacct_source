@@ -56,6 +56,7 @@ Columns passed through must be present in the upstream source tables. See below 
 vars:
   sage_intacct_source:
     sage_account_pass_through_columns: ['new_custom_field', 'custom_field_2']
+    sage_gl_pass_through_columns: ['custom_field_3', 'custom_field_4']
 ```
 
 ### Disabling and Enabling Models
