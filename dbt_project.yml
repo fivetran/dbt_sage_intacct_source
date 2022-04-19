@@ -21,6 +21,9 @@ vars:
     
     sage_account_pass_through_columns: []
     sage_gl_pass_through_columns: []
+
+    sage_intacct__using_bills: true
+    sage_intacct__using_invoices: true 
     
     
 
