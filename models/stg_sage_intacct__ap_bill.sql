@@ -1,3 +1,4 @@
+{{ config(enabled=var('sage_intacct__using_bills', True)) }}
 
 with base as (
 
@@ -52,3 +53,4 @@ final as (
 )
 
 select * from final
+where not coalesce(_fivetran_deleted, false)

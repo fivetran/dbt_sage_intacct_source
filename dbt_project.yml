@@ -1,5 +1,5 @@
 name: 'sage_intacct_source'
-version: '0.1.0'
+version: '0.1.1'
 config-version: 2
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 
@@ -19,5 +19,14 @@ vars:
     ar_invoice_item:              "{{ source('sage_intacct','ar_invoice_item') }}"
     ar_invoice:                   "{{ source('sage_intacct','ar_invoice') }}"
     
-    sage_account_pass_through_columns: [] 
+    sage_account_pass_through_columns: []
+    sage_gl_pass_through_columns: []
 
+    sage_intacct__using_bills: true
+    sage_intacct__using_invoices: true 
+    
+    
+
+clean-targets:
+    - target
+    - dbt_modules
