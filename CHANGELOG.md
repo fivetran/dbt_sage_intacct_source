@@ -1,3 +1,8 @@
+# dbt_sage_intacct_source v0.1.2
+ 
+## Updates
+- Removed the `_fivetran_deleted` filter in the `stg_sage_intacct__gl_account`. We saw there were records in the `gl_detail` table that were associated with accounts that were deleted, which affected our joins and bubbled up later in the final P&L and balance sheet models. By removing the filter the balances tie out. However, we've kept _fivetran_deleted as a column so the user may filter that out on their own.
+
 # dbt_sage_intacct_source v0.1.1
  
 ## Updates
