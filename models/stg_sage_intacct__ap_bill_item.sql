@@ -1,3 +1,5 @@
+{{ config(enabled=var('sage_intacct__using_bills', True)) }}
+
 with base as (
 
     select * 

@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_gl_detail_columns()
             )
         }}
+        --The below script allows for pass through columns.
+        {% if var('sage_gl_pass_through_columns') %} 
+        ,
+        {{ var('sage_gl_pass_through_columns') | join (", ")}}
+
+        {% endif %}
         
     from base
 ),
@@ -23,6 +29,7 @@ final as (
     
     select 
         recordno as gl_detail_id,
+        _fivetran_deleted,
         cast(accountno as {{ dbt_utils.type_string() }}) as account_no,
         accounttitle as account_title,
         amount,
@@ -31,17 +38,24 @@ final as (
         batch_title,
         batchkey as batch_key,
         bookid as book_id,
+        classid as class_id,
+        classname as class_name,
         creditamount as credit_amount,
         debitamount as debit_amount,
         currency,
         customerid as customer_id,
         customername as customer_name,
+        departmentid as department_id,
+        departmenttitle as department_title,
         description,
         docnumber as doc_number,
         entry_date as entry_date_at,
         entry_state,
         entrydescription as entry_description,
         line_no,
+        locationid as location_id,
+        locationname as location_name,
+        prdescription as pr_description,
         recordid as record_id,
         recordtype as record_type,
         totaldue as total_due,
@@ -58,7 +72,16 @@ final as (
         whenmodified as modified_at,
         whenpaid as paid_at
 
+
+        --The below script allows for pass through columns.
+        {% if var('sage_gl_pass_through_columns') %} 
+        ,
+        {{ var('sage_gl_pass_through_columns') | join (", ")}}
+
+        {% endif %}
+
     from fields
 )
 
 select * from final
+where not coalesce(_fivetran_deleted, false)

@@ -1,5 +1,4 @@
 {% macro get_gl_detail_columns() %}
-
 {% set columns = [
     {"name": "_fivetran_deleted", "datatype": "boolean"},
     {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
@@ -12,11 +11,15 @@
     {"name": "batch_title", "datatype": dbt_utils.type_string()},
     {"name": "batchkey", "datatype": dbt_utils.type_string()},
     {"name": "bookid", "datatype": dbt_utils.type_string()},
+    {"name": "classid", "datatype": dbt_utils.type_string()},
+    {"name": "classname", "datatype": dbt_utils.type_string()},
     {"name": "creditamount", "datatype": dbt_utils.type_float()},
     {"name": "currency", "datatype": dbt_utils.type_string()},
     {"name": "customerid", "datatype": dbt_utils.type_string()},
     {"name": "customername", "datatype": dbt_utils.type_string()},
     {"name": "debitamount", "datatype": dbt_utils.type_float()},
+    {"name": "departmentid", "datatype": dbt_utils.type_string()},
+    {"name": "departmenttitle", "datatype": dbt_utils.type_string()},
     {"name": "description", "datatype": dbt_utils.type_string()},
     {"name": "docnumber", "datatype": dbt_utils.type_string()},
     {"name": "document", "datatype": dbt_utils.type_string()},
@@ -27,6 +30,7 @@
     {"name": "locationid", "datatype": dbt_utils.type_string()},
     {"name": "locationname", "datatype": dbt_utils.type_string()},
     {"name": "modified", "datatype": dbt_utils.type_timestamp()},
+    {"name": "prdescription", "datatype": dbt_utils.type_string()},
     {"name": "recordid", "datatype": dbt_utils.type_string()},
     {"name": "recordno", "datatype": dbt_utils.type_string()},
     {"name": "recordtype", "datatype": dbt_utils.type_string()},
@@ -44,7 +48,5 @@
     {"name": "whenmodified", "datatype": dbt_utils.type_timestamp()},
     {"name": "whenpaid", "datatype": "date"}
 ] %}
-
 {{ return(columns) }}
-
 {% endmacro %}
