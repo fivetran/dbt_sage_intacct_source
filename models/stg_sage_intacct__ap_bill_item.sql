@@ -25,7 +25,7 @@ final as (
     select 
         cast(recordkey as {{ dbt_utils.type_string() }}) as bill_id,
         cast(recordno as {{dbt_utils.type_string() }}) as bill_item_id,
-        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
         accountkey as account_key,
         accountno as account_no,
         accounttitle as account_title,
