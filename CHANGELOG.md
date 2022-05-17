@@ -1,5 +1,9 @@
+# dbt_sage_intacct_source v0.2.0
+## 🎉 Features 🎉
+- README documentation updates for easier experience leveraging the dbt package.
+- Added `fivetran_log_[source_table_name]_identifier` variables to allow for easier flexibility of the package to refer to source tables with different names.
 # dbt_sage_intacct_source v0.1.1
- 
+
 ## Updates
 - Excludes fivetran-deleted rows in the staging models
 ([#7](https://github.com/fivetran/dbt_sage_intacct/issues/7))
