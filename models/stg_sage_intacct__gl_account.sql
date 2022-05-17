@@ -30,7 +30,7 @@ final as (
     select 
         cast(accountno as {{ dbt_utils.type_string() }}) as account_no,
         _fivetran_deleted,	
-        _fivetran_synced,	
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,	
         accounttype as account_type,	
         alternativeaccount as alternative_account,	
         category,	
@@ -46,8 +46,8 @@ final as (
         status,	
         taxable,	
         title,	
-        whencreated as created_at,	
-        whenmodified as modified_at	
+        cast(whencreated as {{ dbt_utils.type_timestamp() }}) as created_at,	
+        cast(whenmodified as {{ dbt_utils.type_timestamp() }}) as modified_at	
 
         --The below script allows for pass through columns.
         {% if var('sage_account_pass_through_columns') %} 

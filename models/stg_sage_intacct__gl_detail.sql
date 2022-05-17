@@ -30,6 +30,7 @@ final as (
     select 
         recordno as gl_detail_id,
         _fivetran_deleted,
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,	
         cast(accountno as {{ dbt_utils.type_string() }}) as account_no,
         accounttitle as account_title,
         amount,
@@ -69,7 +70,7 @@ final as (
         vendorname as vendor_name,
         whencreated as created_at,
         whendue as due_at,
-        whenmodified as modified_at,
+        cast(whenmodified as {{ dbt_utils.type_timestamp() }}) as modified_at,
         whenpaid as paid_at
 
 

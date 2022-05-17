@@ -347,6 +347,10 @@ models:
         tests:
           - unique
           - not_null
+      - name: _fivetran_deleted
+        description: The timestamp of when the data was deleted by Fivetran
+      - name: _fivetran_synced
+        description: The timestamp of when the data was last synced by Fivetran
       - name: account_no
         description: ID of the account
       - name: account_title

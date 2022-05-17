@@ -25,8 +25,8 @@ final as (
     select 
         cast(recordno as {{ dbt_utils.type_string() }}) as invoice_id,
         _fivetran_deleted,
-        _fivetran_synced,
-        auwhencreated as au_created_at,
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
+        cast(auwhencreated as {{ dbt_utils.type_timestamp() }}) as au_created_at,
         billtopaytocontactname as bill_to_pay_to_contact_name,
         billtopaytokey as bill_to_pay_to_key,
         createdby as created_by,
@@ -48,7 +48,7 @@ final as (
         totalpaid as total_paid,
         whencreated as created_at,
         whendue as due_at,
-        whenmodified as modified_at,
+        cast(whenmodified as {{ dbt_utils.type_timestamp() }}) as modified_at,
         whenpaid as paid_at,
         whenposted as posted_at
 
