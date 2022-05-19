@@ -25,7 +25,7 @@ final as (
     select 
         cast(recordkey as {{ dbt_utils.type_string() }}) as invoice_id,
         cast(recordno as {{ dbt_utils.type_string() }}) as invoice_item_id,
-        _fivetran_synced,
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
         accountkey as account_key,
         accountno as account_no,
         accounttitle as account_title,
@@ -56,8 +56,8 @@ final as (
         totalselected as total_selected,
         vendorid as vendor_id,
         vendorname as vendor_name,
-        whencreated as created_at,
-        whenmodified as modified_at,
+        cast(whencreated as {{ dbt_utils.type_timestamp() }}) as created_at,
+        cast(whenmodified as {{ dbt_utils.type_timestamp() }}) as modified_at,
         warehouseid as warehouse_id,
         warehousename as warehouse_name
 

@@ -1,11 +1,18 @@
+
+# dbt_sage_intacct_source v0.2.0
+## 🎉 Documentation and Feature Updates
+- Updated README documentation updates for easier navigation and setup of the dbt package
+- Added `sage_intacct_[source_table_name]_identifier` variables to allow for easier flexibility of the package to refer to source tables with different names.
+
 # dbt_sage_intacct_source v0.1.2
  
 ## Updates
 - Removed the `_fivetran_deleted` filter in the `stg_sage_intacct__gl_account`. We saw there were records in the `gl_detail` table that were associated with accounts that were deleted, which affected our joins and bubbled up later in the final P&L and balance sheet models. By removing the filter the balances tie out. However, we've kept `_fivetran_deleted` as a column so the user may filter that out on their own.
 ([#8](https://github.com/fivetran/dbt_sage_intacct_source/pull/8))
 
+
 # dbt_sage_intacct_source v0.1.1
- 
+
 ## Updates
 - Excludes fivetran-deleted rows in the staging models
 ([#7](https://github.com/fivetran/dbt_sage_intacct/issues/7))
@@ -27,6 +34,16 @@ Thank you @santi95 for raising these to our attention! ([#6](https://github.com/
 
 # dbt_sage_intacct_source v0.1.0
 
-## Initial Release
-- This is the initial release of this package. For more information refer to the [README](/README.md).
+# 🎉 Initial Release 🎉 
+- This is the initial release of this package. 
 
+This package is designed enrich your Fivetran data by doing the following:
+
+- Add descriptions to tables and columns that are synced using Fivetran
+- Add freshness tests to source data
+- Add column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
+- Model staging tables, which will be used in our transform package
+
+Currently the package supports Postgres, Redshift, BigQuery, Databricks and Snowflake. Additionally, this package is designed to work with dbt versions [">=1.0.0", "<2.0.0"].
+
+- For more information refer to the [README](/README.md).

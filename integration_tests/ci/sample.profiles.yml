@@ -37,7 +37,7 @@ integration_tests:
     spark:
       type: spark
       method: http
-      schema: sage_intacct_integration_tests
+      schema: sage_intacct_source_integration_tests
       host: "{{ env_var('CI_SPARK_DBT_HOST') }}"
       organization: "{{ env_var('CI_SPARK_DBT_ORGANIZATION') }}"
       token: "{{ env_var('CI_SPARK_DBT_TOKEN') }}"
