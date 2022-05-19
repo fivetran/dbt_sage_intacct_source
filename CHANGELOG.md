@@ -1,7 +1,16 @@
+
 # dbt_sage_intacct_source v0.2.0
 ## 🎉 Documentation and Feature Updates
 - Updated README documentation updates for easier navigation and setup of the dbt package
 - Added `sage_intacct_[source_table_name]_identifier` variables to allow for easier flexibility of the package to refer to source tables with different names.
+
+# dbt_sage_intacct_source v0.1.2
+ 
+## Updates
+- Removed the `_fivetran_deleted` filter in the `stg_sage_intacct__gl_account`. We saw there were records in the `gl_detail` table that were associated with accounts that were deleted, which affected our joins and bubbled up later in the final P&L and balance sheet models. By removing the filter the balances tie out. However, we've kept `_fivetran_deleted` as a column so the user may filter that out on their own.
+([#8](https://github.com/fivetran/dbt_sage_intacct_source/pull/8))
+
+
 # dbt_sage_intacct_source v0.1.1
 
 ## Updates
