@@ -17,8 +17,6 @@
 # 📣 What does this dbt package do?
 - Materializes [Sage Intacct staging tables](https://fivetran.github.io/dbt_sage_intacct/#!/overview/sage_intacct_source/models/?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/sage_intacct/#schemainformation). These staging tables clean, test, and prepare your Sage Intacct data from [Fivetran's connector](https://fivetran.com/docs/applications/sage_intacct) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
-    - ID primary keys are prefixed with the name of the table. For example, the `gl_detail` table's recordno column is renamed `gl_detail_id`.
-    - Foreign keys include the table that they refer to. For example, ap_bill_item's `recordkey` is named `bill_id`. 
   - Adds freshness tests to source data
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your Sage Intacct data through the [dbt docs site](https://fivetran.github.io/dbt_sage_intacct_source/).
