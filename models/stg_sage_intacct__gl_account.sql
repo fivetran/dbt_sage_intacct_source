@@ -59,5 +59,5 @@ final as (
     from fields
 )
 
-select * from final
-where not coalesce(_fivetran_deleted, false)
+select * 
+from final
