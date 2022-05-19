@@ -1,7 +1,7 @@
 # dbt_sage_intacct_source v0.2.0
 ## 🎉 Documentation and Feature Updates
 - Updated README documentation updates for easier navigation and setup of the dbt package
-- Added `[package]_[source_table_name]_identifier` variables to allow for easier flexibility of the package to refer to source tables with different names.
+- Added `sage_intacct_[source_table_name]_identifier` variables to allow for easier flexibility of the package to refer to source tables with different names.
 # dbt_sage_intacct_source v0.1.1
 
 ## Updates

@@ -15,7 +15,7 @@
 
 # Sage Intacct Source dbt Package ([Docs](https://fivetran.github.io/dbt_sage_intacct_source/))
 # 📣 What does this dbt package do?
-- Materializes [Sage Intacct staging tables](https://fivetran.github.io/dbt_sage_intacct/#!/overview/sage_intacct_source/models/?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/sage_intacct/#schemainformation). These staging tables clean, test, and prepare your Sage Intacct data from [Fivetran's connector](https://fivetran.com/docs/applications/sage_intacct) for analysis by doing the following:
+- Materializes [Sage Intacct staging tables](https://fivetran.github.io/dbt_sage_intacct_source/#!/overview/sage_intacct_source/models/?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/sage-intacct/#schemainformation). These staging tables clean, test, and prepare your Sage Intacct data from [Fivetran's connector](https://fivetran.com/docs/applications/sage-intacct) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
   - Adds freshness tests to source data
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
@@ -26,7 +26,7 @@
 ## Step 1: Prerequisites
 To use this dbt package, you must have the following:
 - At least one Fivetran Sage Intacct connector syncing data into your destination. 
-- A **BigQuery**, **Snowflake**, **Redshift**, or **PostgreSQL** destination.
+- A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
 
 ## Step 2: Install the package
 Include the following sage_intacct_source package version in your `packages.yml` file.
