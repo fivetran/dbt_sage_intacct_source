@@ -94,17 +94,6 @@ models:
 
 Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core™ setup guides](https://fivetran.com/docs/transformations/dbt#setupguide).
     
-# 🔍 Does this package have dependencies?
-This dbt package is dependent on the following dbt packages. Please be aware that these dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
-> IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
-```yml
-packages:
-    - package: fivetran/fivetran_utils
-      version: [">=0.4.0", "<0.5.0"]
-
-    - package: dbt-labs/dbt_utils
-      version: [">=1.0.0", "<2.0.0"]
-```
 ### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
 > IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_sage_intacct_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
@@ -119,6 +108,18 @@ vars:
 # 🙌 How is this package maintained and can I contribute?
 ## Package Maintenance
 The Fivetran team maintaining this package _only_ maintains the latest version of the package. We highly recommend that you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/sage_intacct_source/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_sage_intacct_source/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
+
+# 🔍 Does this package have dependencies?
+This dbt package is dependent on the following dbt packages. Please be aware that these dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
+> IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
+```yml
+packages:
+    - package: fivetran/fivetran_utils
+      version: [">=0.4.0", "<0.5.0"]
+
+    - package: dbt-labs/dbt_utils
+      version: [">=1.0.0", "<2.0.0"]
+```
 
 ## Contributions
 A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions! 
