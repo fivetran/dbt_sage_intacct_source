@@ -34,8 +34,7 @@ dispatch:
 ```
 
 ## Step 2: Install the package (skip if also using the `sage_intacct` transformation package)
-If you are **not** using the [Sage Intacct transformation package](https://github.com/fivetran/dbt_sage_intacct), include the following recurly_source package version in your `packages.yml` file.
-Include the following sage_intacct_source package version in your `packages.yml` file.
+If you are **not** using the [Sage Intacct transformation package](https://github.com/fivetran/dbt_sage_intacct), include the following sage_intacct_source package version in your `packages.yml` file. 
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 ```yaml
 packages:
