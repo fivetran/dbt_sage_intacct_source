@@ -37,7 +37,7 @@ final as (
         currency,
         customerid as customer_id,
         customername as customer_name,
-        departmentid as department_id,
+        cast(departmentid as {{ dbt_utils.type_string() }}) as department_id,
         departmentname as department_name,
         entry_date as entry_date_at,
         entrydescription as entry_description,

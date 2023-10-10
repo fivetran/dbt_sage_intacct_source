@@ -1,3 +1,7 @@
+# dbt_sage_intacct_source v0.1.2
+## Updates
+- Explicitly casts `department_id` in `stg_sage_intacct__ap_bill_item` and `stg_sage_intacct__ar_invoice_item` as string data type to avoid conflicts in downstream union. ()
+
 # dbt_sage_intacct_source v0.1.1
  
 ## Updates
