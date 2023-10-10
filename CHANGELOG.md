@@ -1,6 +1,53 @@
+# dbt_sage_intacct_source v0.UPDATE.UPDATE
+
+ ## Under the Hood:
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
+- Updated the pull request [templates](/.github).
+
+# dbt_sage_intacct_source v0.2.0
+
+## 🚨 Breaking Changes 🚨:
+[PR #10](https://github.com/fivetran/dbt_sage_intacct_source/pull/10) includes the following breaking changes:
+- Dispatch update for dbt-utils to dbt-core cross-db macros migration. Specifically `{{ dbt_utils.<macro> }}` have been updated to `{{ dbt.<macro> }}` for the below macros:
+    - `any_value`
+    - `bool_or`
+    - `cast_bool_to_text`
+    - `concat`
+    - `date_trunc`
+    - `dateadd`
+    - `datediff`
+    - `escape_single_quotes`
+    - `except`
+    - `hash`
+    - `intersect`
+    - `last_day`
+    - `length`
+    - `listagg`
+    - `position`
+    - `replace`
+    - `right`
+    - `safe_cast`
+    - `split_part`
+    - `string_literal`
+    - `type_bigint`
+    - `type_float`
+    - `type_int`
+    - `type_numeric`
+    - `type_string`
+    - `type_timestamp`
+    - `array_append`
+    - `array_concat`
+    - `array_construct`
+- For `current_timestamp` and `current_timestamp_in_utc` macros, the dispatch AND the macro names have been updated to the below, respectively:
+    - `dbt.current_timestamp_backcompat`
+    - `dbt.current_timestamp_in_utc_backcompat`
+- Dependencies on `fivetran/fivetran_utils` have been upgraded, previously `[">=0.3.0", "<0.4.0"]` now `[">=0.4.0", "<0.5.0"]`.
+
 # dbt_sage_intacct_source v0.1.2
+ 
 ## Updates
-- Explicitly casts `department_id` in `stg_sage_intacct__ap_bill_item` and `stg_sage_intacct__ar_invoice_item` as string data type to avoid conflicts in downstream union. ()
+- Removed the `_fivetran_deleted` filter in the `stg_sage_intacct__gl_account`. We saw there were records in the `gl_detail` table that were associated with accounts that were deleted, which affected our joins and bubbled up later in the final P&L and balance sheet models. By removing the filter the balances tie out. However, we've kept `_fivetran_deleted` as a column so the user may filter that out on their own.
+([#8](https://github.com/fivetran/dbt_sage_intacct_source/pull/8))
 
 # dbt_sage_intacct_source v0.1.1
  

@@ -28,7 +28,7 @@ fields as (
 final as (
     
     select 
-        cast(accountno as {{ dbt_utils.type_string() }}) as account_no,
+        cast(accountno as {{ dbt.type_string() }}) as account_no,
         _fivetran_deleted,	
         _fivetran_synced,	
         accounttype as account_type,	
@@ -59,5 +59,5 @@ final as (
     from fields
 )
 
-select * from final
-where not coalesce(_fivetran_deleted, false)
+select * 
+from final

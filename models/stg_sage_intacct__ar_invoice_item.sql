@@ -23,8 +23,8 @@ fields as (
 final as (
     
     select 
-        cast(recordkey as {{ dbt_utils.type_string() }}) as invoice_id,
-        cast(recordno as {{ dbt_utils.type_string() }}) as invoice_item_id,
+        cast(recordkey as {{ dbt.type_string() }}) as invoice_id,
+        cast(recordno as {{ dbt.type_string() }}) as invoice_item_id,
         _fivetran_synced,
         accountkey as account_key,
         accountno as account_no,

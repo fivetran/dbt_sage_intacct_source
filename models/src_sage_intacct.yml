@@ -13,6 +13,7 @@ sources:
 
     tables:
       - name: gl_detail
+        identifier: "{{ var('sage_intacct_gl_detail_identifier', 'gl_detail') }}"
         description: Records all company transactions, where each has its offset entry to balance. 
         columns:
           - name: recordno
@@ -93,6 +94,7 @@ sources:
             description: When transaction was paid
         
       - name: gl_account
+        identifier: "{{ var('sage_intacct_gl_account_identifier', 'gl_account') }}"
         freshness: null 
         description: Records each existing account, with their corresponding categories.
         columns: 
@@ -157,6 +159,7 @@ sources:
       
 
       - name: ap_bill
+        identifier: "{{ var('sage_intacct_ap_bill_identifier', 'ap_bill') }}"
         description: Records each bill that is owed to vendors
         columns:
           - name: recordno
@@ -213,6 +216,7 @@ sources:
             description: Bill posted date
 
       - name: ap_bill_item
+        identifier: "{{ var('sage_intacct_ap_bill_item_identifier', 'ap_bill_item') }}"
         description: Records each item of each bill owed
         columns: 
           - name: recordno
@@ -297,6 +301,7 @@ sources:
             description: Modified date
 
       - name: ar_invoice
+        identifier: "{{ var('sage_intacct_ar_invoice_identifier', 'ar_invoice') }}"
         description: Records each invoice that is owed by customers
         columns: 
           - name: recordno
@@ -361,6 +366,7 @@ sources:
             description: Posted date
 
       - name: ar_invoice_item
+        identifier: "{{ var('sage_intacct_ar_invoice_item_identifier', 'ar_invoice_item') }}"
         description: Records each item of each invoice owed by customers
         columns: 
           - name: recordno
