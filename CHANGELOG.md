@@ -1,8 +1,13 @@
-# dbt_sage_intacct_source v0.UPDATE.UPDATE
+# dbt_sage_intacct_source v0.2.1
 
- ## Under the Hood:
-- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
-- Updated the pull request [templates](/.github).
+A very spoooOOOOOooooky release 🎃 👻
+
+## Bug Fixes
+- Explicitly casts `department_id`, `location_id`, and `item_id` as strings in the staging `ap_bill_item` and `ar_invoice_item` models, which are unioned together downstream in [`sage_intacct_ap_ar_enhanced`](https://fivetran.github.io/dbt_sage_intacct/#!/model/model.sage_intacct.sage_intacct__ap_ar_enhanced) ([PR #12](https://github.com/fivetran/dbt_sage_intacct_source/pull/12)).
+
+## Under the Hood:
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job ([PR #11](https://github.com/fivetran/dbt_sage_intacct_source/pull/11)).
+- Updated the pull request [templates](/.github) ([PR #11](https://github.com/fivetran/dbt_sage_intacct_source/pull/11)).
 
 # dbt_sage_intacct_source v0.2.0
 
@@ -72,6 +77,16 @@ Thank you @santi95 for raising these to our attention! ([#6](https://github.com/
 
 # dbt_sage_intacct_source v0.1.0
 
-## Initial Release
-- This is the initial release of this package. For more information refer to the [README](/README.md).
+# 🎉 Initial Release 🎉 
+- This is the initial release of this package. 
 
+This package is designed enrich your Fivetran data by doing the following:
+
+- Add descriptions to tables and columns that are synced using Fivetran
+- Add freshness tests to source data
+- Add column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
+- Model staging tables, which will be used in our transform package
+
+Currently the package supports Postgres, Redshift, BigQuery, Databricks and Snowflake. Additionally, this package is designed to work with dbt versions [">=1.0.0", "<2.0.0"].
+
+- For more information refer to the [README](/README.md).
