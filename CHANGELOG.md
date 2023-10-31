@@ -1,8 +1,13 @@
-# dbt_sage_intacct_source v0.UPDATE.UPDATE
+# dbt_sage_intacct_source v0.2.1
 
- ## Under the Hood:
-- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
-- Updated the pull request [templates](/.github).
+A very spoooOOOOOooooky release 🎃 👻
+
+## Bug Fixes
+- Explicitly casts `department_id`, `location_id`, and `item_id` as strings in the staging `ap_bill_item` and `ar_invoice_item` models, which are unioned together downstream in [`sage_intacct_ap_ar_enhanced`](https://fivetran.github.io/dbt_sage_intacct/#!/model/model.sage_intacct.sage_intacct__ap_ar_enhanced) ([PR #12](https://github.com/fivetran/dbt_sage_intacct_source/pull/12)).
+
+## Under the Hood:
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job ([PR #11](https://github.com/fivetran/dbt_sage_intacct_source/pull/11)).
+- Updated the pull request [templates](/.github) ([PR #11](https://github.com/fivetran/dbt_sage_intacct_source/pull/11)).
 
 # dbt_sage_intacct_source v0.2.0
 

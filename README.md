@@ -50,7 +50,6 @@ vars:
     sage_intacct_schema: your_schema_name 
 ```
 ## (Optional) Step 4: Additional configurations
-<details><summary>Expand for configurations</summary>
 
 ### Passthrough Columns
 This package allows users to add additional columns to the `stg_sage_intacct__gl_account` table. 
@@ -94,8 +93,6 @@ models:
     sage_intacct_source:
       +schema: my_new_schema_name # leave blank for just the target_schema
 ```
-
-</details>
 
 ## (Optional) Step 5: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand for more details</summary>
