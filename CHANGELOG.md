@@ -3,6 +3,11 @@
 ## 🚨 Breaking Changes 🚨:
 - Removal of the `_fivetran_deleted` field from the `stg_sage_intacct__gl_detail` table due to this field being deprecated within the connector. The relevant information is now available within the `gl_batch` source table.
 
+## Bug Fixes
+- Cast the `class_id` field within the following models as `{{ dbt.type_string() }}` in order to ensure datatype consistency for the field across models. This also ensures downstream transformation logic within `dbt_sage_intacct` compiles successfully.
+    - `stg_sage_intacct__ap_bill_item`
+    - `stg_sage_intacct__ar_invoice_item`
+
 ## Feature Updates
 - Addition of the `gl_batch` source and relevant downstream models:
     - `stg_sage_intacct__gl_batch_tmp`
