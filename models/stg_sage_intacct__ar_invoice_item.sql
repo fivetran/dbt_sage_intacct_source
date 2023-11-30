@@ -32,7 +32,7 @@ final as (
         amount,
         basecurr as base_curr,
         baselocation as base_location,
-        classid as class_id,
+        cast(classid as {{ dbt.type_string() }}) as class_id,
         classname as class_name,
         currency,
         customerid as customer_id,

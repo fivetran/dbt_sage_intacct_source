@@ -34,7 +34,7 @@ final as (
         baselocation as base_location,
         billable, 
         billed,
-        classid as class_id,
+        cast(classid as {{ dbt.type_string() }}) as class_id,
         classname as class_name,
         createdby as created_by,
         currency,
