@@ -413,3 +413,69 @@ models:
         description: When transaction is modified
       - name: paid_at
         description: When transaction was paid
+
+  - name: stg_sage_intacct__gl_batch
+    identifier: "{{ var('sage_intacct_gl_batch_identifier', 'gl_batch') }}"
+    description: Records batch updates of records originating from the gl_detail table
+    columns:
+      - name: _fivetran_deleted
+        description: The timestamp of when the data was deleted by Fivetran
+      - name: _fivetran_synced
+        description: The timestamp of when the data was last synced by Fivetran
+      - name: base_location
+        description: Base location of the gl batch
+      - name: base_location_no
+        description: Base location number of the gl batch
+      - name: batch_date
+        description: Date the GL batch took place
+      - name: batch_title
+        description: Title of the GL batch
+      - name: batch_no
+        description: Number of the batch entry
+      - name: created_by
+        description: User who created the GL batch
+      - name: journal
+        description: Journal reference of the GL batch (ie. AR, AP, etc.)
+      - name: mega_entity_id
+        description: The ID of the mega entity which the GL batch is related
+      - name: mega_entity_key
+        description: They key of the mega entity which the GL batch is related
+      - name: mega_entity_name
+        description: The name of the mega entity which the GL batch is related
+      - name: modified
+        description: Date the GL batch was last modified
+      - name: modified_by
+        description: User who last modified the GL batch
+      - name: modified_by_id
+        description: ID of the user who last modified the GL batch
+      - name: module
+        description: Module reference of the GL batch
+      - name: pr_batch_key
+        description: PR batch key related to the GL batch
+      - name: record_no
+        description: Individual record number of the GL batch. This is the lookup key for the GL Detail table
+        tests:
+          - unique
+          - not_null
+      - name: reference_no
+        description: Reference number of the GL batch record
+      - name: reversed
+        description: Boolean indicating if the GL batch record was reversed
+      - name: reversed_from
+        description: Reference to the user who reversed the GL batch (if applicable)
+      - name: reversed_key
+        description: Reference key if the GL batch was reversed
+      - name: state
+        description: State of the GL batch (ie. Posted, Submitted, Draft, etc.)
+      - name: tax_implications
+        description: Reference to any tax implications for the GL batch
+      - name: template_key
+        description: Reference key to the template used for the GL batch
+      - name: user_info_login_id
+        description: User type of the individual who created the GL batch (ie. Admin, Guest, <username>, etc.) 
+      - name: user_key
+        description: Key of the user who created the GL batch
+      - name: when_created
+        description: Date when the GL batch was created
+      - name: when_modified
+        description: Timestamp when the GL batch was modified

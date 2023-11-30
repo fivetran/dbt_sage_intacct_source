@@ -29,7 +29,6 @@ final as (
     
     select 
         recordno as gl_detail_id,
-        _fivetran_deleted,
         cast(accountno as {{ dbt.type_string() }}) as account_no,
         accounttitle as account_title,
         amount,
@@ -83,5 +82,5 @@ final as (
     from fields
 )
 
-select * from final
-where not coalesce(_fivetran_deleted, false)
+select * 
+from final
