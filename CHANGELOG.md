@@ -1,5 +1,7 @@
 # dbt_sage_intacct_source v0.3.0
 
+[PR #14](https://github.com/fivetran/dbt_sage_intacct_source/pull/14) includes the following updates.
+
 ## 🚨 Breaking Changes 🚨:
 - Removal of the `_fivetran_deleted` field from the `stg_sage_intacct__gl_detail` table due to this field being deprecated within the connector. The relevant information is now available within the `gl_batch` source table.
 
@@ -12,6 +14,10 @@
 - Addition of the `gl_batch` source and relevant downstream models:
     - `stg_sage_intacct__gl_batch_tmp`
     - `stg_sage_intacct__gl_batch`
+
+## Under the Hood
+- Updated Maintainer PR Template
+- Included auto-releaser GitHub Actions workflow to automate future releases
 
 # dbt_sage_intacct_source v0.2.1
 
