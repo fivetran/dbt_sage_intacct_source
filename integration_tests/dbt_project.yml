@@ -16,7 +16,7 @@ vars:
     sage_intacct_schema: sage_intacct_source_integration_tests_2
 
 seeds:
-  +quote_columns: "{{ true if target.type in ('redshift', 'databricks') else false }}"
+  +quote_columns: "{{ true if target.type == 'redshift' else false }}"
 
 dispatch:
   - macro_namespace: dbt_utils
