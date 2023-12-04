@@ -415,7 +415,6 @@ models:
         description: When transaction was paid
 
   - name: stg_sage_intacct__gl_batch
-    identifier: "{{ var('sage_intacct_gl_batch_identifier', 'gl_batch') }}"
     description: Records batch updates of records originating from the gl_detail table
     columns:
       - name: _fivetran_deleted
