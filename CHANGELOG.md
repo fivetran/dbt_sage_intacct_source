@@ -1,5 +1,5 @@
 # dbt_sage_intacct_source v0.3.1
-[PR #](https://github.com/fivetran/dbt_sage_intacct_source/pull/) includes the following updates:
+[PR #16](https://github.com/fivetran/dbt_sage_intacct_source/pull/16) includes the following updates:
 
 ## Bug Fixes
 - Included the `sage_intacct__using_bills` variable as an enablement config for the following models as it was erroneously omitted in previously releases:
