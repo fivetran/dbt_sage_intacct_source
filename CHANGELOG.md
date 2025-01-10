@@ -1,3 +1,8 @@
+# dbt_sage_intacct_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#19](https://github.com/fivetran/dbt_sage_intacct_source/pull/19))
+
 # dbt_sage_intacct_source v0.3.1
 [PR #16](https://github.com/fivetran/dbt_sage_intacct_source/pull/16) includes the following updates:
 
