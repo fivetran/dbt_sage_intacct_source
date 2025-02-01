@@ -69,7 +69,8 @@ final as (
         whencreated as created_at,
         whendue as due_at,
         whenmodified as modified_at,
-        whenpaid as paid_at
+        whenpaid as paid_at,
+        _fivetran_deleted
 
 
         --The below script allows for pass through columns.
