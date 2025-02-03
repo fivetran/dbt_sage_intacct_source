@@ -1,3 +1,8 @@
+# dbt_sage_intacct_source v0.4.0
+
+## Breaking Changes
+- Reintroduced `_fivetran_deleted`. 
+
 # dbt_sage_intacct_source v0.3.1
 [PR #16](https://github.com/fivetran/dbt_sage_intacct_source/pull/16) includes the following updates:
 
