@@ -413,6 +413,10 @@ models:
         description: When transaction is modified
       - name: paid_at
         description: When transaction was paid
+      - name: _fivetran_deleted
+        description: The timestamp of when the data was deleted by Fivetran. Although the `_fivetran_deleted` column is no 
+          longer being actively synced in incremental runs in the connector in `gl_detail`, 
+          it can populate with `true/false` values in historical resyncs. 
 
   - name: stg_sage_intacct__gl_batch
     description: Records batch updates of records originating from the gl_detail table
