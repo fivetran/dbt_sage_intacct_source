@@ -70,7 +70,7 @@ final as (
         whendue as due_at,
         whenmodified as modified_at,
         whenpaid as paid_at,
-        _fivetran_deleted
+        _fivetran_deleted as is_detail_deleted
 
 
         --The below script allows for pass through columns.
