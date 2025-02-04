@@ -10,6 +10,9 @@ It is null in normal incremental syncs, but can populate true in historical resy
     - `is_detail_deleted` in `stg_sage_intacct__gl_detail`
     - This ensures column name uniqueness when they are joined into `int_sage_intacct__active_gl_detail` in the `dbt_sage_intacct` package.
 
+## Documentation
+- Corrected references to connectors and connections in the README. ([#19](https://github.com/fivetran/dbt_sage_intacct_source/pull/19))
+
 ## Under the Hood
 - Updated `gl_detail` yml and seed files with `_fivetran_deleted` documentation and records for testing.
 
