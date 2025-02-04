@@ -1,7 +1,17 @@
 # dbt_sage_intacct_source v0.4.0
+[PR #20](https://github.com/fivetran/dbt_sage_intacct_source/pull/20) includes the following updates:
 
-## Breaking Changes
-- Reintroduced `_fivetran_deleted`. 
+## Breaking Changes (`--full-refresh` required)
+- Reintroduced `_fivetran_deleted` from the `gl_detail` source table, as the field was not fully deprecated within in the connector. 
+It is null in normal incremental syncs, but can populate true in historical resyncs. 
+- This ensures the general ledger models in the downstream `dbt_sage_intacct` transform package excludes deleted records from `stg_sage_intacct__gl_detail`.
+- Renamed `_fivetran_deleted` to: 
+    - `is_batch_deleted` in `stg_sage_intacct__gl_batch` 
+    - `is_detail_deleted` in `stg_sage_intacct__gl_detail`
+    - This ensures column name uniqueness when they are joined into `int_sage_intacct__active_gl_detail` in the `dbt_sage_intacct` package.
+
+## Under the Hood
+- Updated `gl_detail` yml and seed files with `_fivetran_deleted` documentation and records for testing.
 
 # dbt_sage_intacct_source v0.3.1
 [PR #16](https://github.com/fivetran/dbt_sage_intacct_source/pull/16) includes the following updates:
