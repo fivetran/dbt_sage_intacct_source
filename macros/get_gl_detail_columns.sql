@@ -45,7 +45,8 @@
     {"name": "whencreated", "datatype": "date"},
     {"name": "whendue", "datatype": "date"},
     {"name": "whenmodified", "datatype": dbt.type_timestamp()},
-    {"name": "whenpaid", "datatype": "date"}
+    {"name": "whenpaid", "datatype": "date"},
+    {"name": "_fivetran_deleted", "datatype": "boolean"}
 ] %}
 {{ return(columns) }}
 {% endmacro %}

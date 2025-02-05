@@ -98,7 +98,7 @@ models:
           - unique
           - not_null
       - name: _fivetran_deleted
-        description: The timestamp of when the data was deleted by Fivetran
+        description: Boolean field indicating whether the record was deleted.
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
       - name: au_created_at
@@ -238,7 +238,7 @@ models:
           - unique
           - not_null
       - name: _fivetran_deleted
-        description: The timestamp of when the data was deleted by Fivetran
+        description: Boolean field indicating whether the record was deleted.
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
       - name: au_created_at
@@ -303,7 +303,7 @@ models:
       - name: account_no
         description: ID of account
       - name: _fivetran_deleted
-        description: The timestamp of when the data was deleted by Fivetran
+        description: Boolean field indicating whether the record was deleted.
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
       - name: account_type
@@ -413,12 +413,14 @@ models:
         description: When transaction is modified
       - name: paid_at
         description: When transaction was paid
+      - name: is_detail_deleted
+        description: Boolean field indicating whether the record was deleted. Due to source limitations, this field is currently populated with `nulls` in incremental syncs in Fivetran. In historical resyncs, it may be populated with `true` or `false`.
 
   - name: stg_sage_intacct__gl_batch
     description: Records batch updates of records originating from the gl_detail table
     columns:
-      - name: _fivetran_deleted
-        description: The timestamp of when the data was deleted by Fivetran
+      - name: is_batch_deleted
+        description: Boolean field indicating whether the record was deleted.
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
       - name: base_location

@@ -20,7 +20,7 @@ fields as (
 final as (
     
     select 
-        _fivetran_deleted,
+        _fivetran_deleted as is_batch_deleted,
         _fivetran_synced,
         baselocation as base_location,
         baselocation_no as base_location_no,
