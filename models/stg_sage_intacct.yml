@@ -413,7 +413,7 @@ models:
         description: When transaction is modified
       - name: paid_at
         description: When transaction was paid
-      - name: _fivetran_deleted
+      - name: is_detail_deleted
         description: Boolean field indicating whether the record was deleted. Due to source limitations, this field is currently populated with `nulls` in incremental syncs in Fivetran. In historical resyncs, it may be populated with `true` or `false`.
 
   - name: stg_sage_intacct__gl_batch
