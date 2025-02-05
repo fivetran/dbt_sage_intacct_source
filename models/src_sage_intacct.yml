@@ -101,7 +101,7 @@ sources:
           - name: recordno
             description: Unique identity of the entry
           - name: _fivetran_deleted
-            description: The timestamp of when the data was deleted by Fivetran
+            description: Boolean field indicating whether the record was deleted.
           - name: _fivetran_synced
             description: The timestamp of when the data was last synced by Fivetran
           - name: accountno
@@ -165,7 +165,7 @@ sources:
           - name: recordno
             description: Unique identity of the entry
           - name: _fivetran_deleted
-            description: The timestamp of when the data was deleted by Fivetran
+            description: Boolean field indicating whether the record was deleted.
           - name: _fivetran_synced
             description: The timestamp of when the data was last synced by Fivetran
           - name: auwhencreated
@@ -307,7 +307,7 @@ sources:
           - name: recordno
             description: Unique identity of the entry
           - name: _fivetran_deleted
-            description: The timestamp of when the data was deleted by Fivetran
+            description: Boolean field indicating whether the record was deleted.
           - name: _fivetran_synced
             description: The timestamp of when the data was last synced by Fivetran
           - name: auwhencreated
@@ -449,7 +449,7 @@ sources:
         description: Records batch updates of records originating from the gl_detail table
         columns:
           - name: _fivetran_deleted
-            description: The timestamp of when the data was deleted by Fivetran
+            description: Boolean field indicating whether the record was deleted.
           - name: _fivetran_synced
             description: The timestamp of when the data was last synced by Fivetran
           - name: baselocation

@@ -98,7 +98,7 @@ models:
           - unique
           - not_null
       - name: _fivetran_deleted
-        description: The timestamp of when the data was deleted by Fivetran
+        description: Boolean field indicating whether the record was deleted.
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
       - name: au_created_at
@@ -238,7 +238,7 @@ models:
           - unique
           - not_null
       - name: _fivetran_deleted
-        description: The timestamp of when the data was deleted by Fivetran
+        description: Boolean field indicating whether the record was deleted.
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
       - name: au_created_at
@@ -303,7 +303,7 @@ models:
       - name: account_no
         description: ID of account
       - name: _fivetran_deleted
-        description: The timestamp of when the data was deleted by Fivetran
+        description: Boolean field indicating whether the record was deleted.
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
       - name: account_type
@@ -420,7 +420,7 @@ models:
     description: Records batch updates of records originating from the gl_detail table
     columns:
       - name: is_batch_deleted
-        description: The timestamp of when the data was deleted by Fivetran
+        description: Boolean field indicating whether the record was deleted.
       - name: _fivetran_synced
         description: The timestamp of when the data was last synced by Fivetran
       - name: base_location

@@ -12,6 +12,7 @@
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#19](https://github.com/fivetran/dbt_sage_intacct_source/pull/19))
+- Corrected the `_fivetran_deleted` descriptions in the `src_sage_intacct.yml` and `stg_sage_intacct.yml` documentation. 
 
 ## Under the Hood
 - Updated `gl_detail` yml and seed files with `_fivetran_deleted` documentation and records for testing.
