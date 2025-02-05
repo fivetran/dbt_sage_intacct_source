@@ -19,7 +19,7 @@ sources:
           - name: recordno
             description: Unique identity of the entry
           - name: _fivetran_deleted
-            description: The timestamp of when the data was deleted by Fivetran
+            description: Boolean field indicating whether the record was deleted. Due to source limitations, this field is currently populated with `nulls` in incremental syncs in Fivetran. In historical resyncs, it may be populated with `true` or `false`.
           - name: _fivetran_synced
             description: The timestamp of when the data was last synced by Fivetran
           - name: accountno
