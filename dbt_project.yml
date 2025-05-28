@@ -1,13 +1,13 @@
 name: 'sage_intacct_source'
-version: '0.4.0'
+version: '0.4.1'
 config-version: 2
 require-dbt-version: [">=1.3.0", "<2.0.0"]
 models:
   sage_intacct_source:
     +schema: sage_intacct_staging
-    materialized: table
+    +materialized: table
     tmp:
-      materialized: view
+      +materialized: view
 vars:
   sage_intacct_source:
     gl_detail: "{{ source('sage_intacct','gl_detail') }}"
