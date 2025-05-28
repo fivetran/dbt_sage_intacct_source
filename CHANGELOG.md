@@ -1,4 +1,6 @@
 # dbt_sage_intacct_source v0.4.1
+This release includes the following updates:
+
 ## Under the Hood
 - Prepends `materialized` configs in the package's `dbt_project.yml` file with `+` to improve compatibility with the newer versions of dbt-core starting with v1.10.0. ([PR #21](https://github.com/fivetran/dbt_sage_intacct_source/pull/21))
 - Updates the package maintainer pull request template. ([PR #22](https://github.com/fivetran/dbt_sage_intacct_source/pull/22))
