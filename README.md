@@ -1,4 +1,6 @@
-<p align="center">
+# Sage Intacct Source dbt Package ([Docs](https://fivetran.github.io/dbt_sage_intacct_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_sage_intacct_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -9,8 +11,6 @@
     <a alt="PRs">
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
-
-# Sage Intacct Source dbt Package ([Docs](https://fivetran.github.io/dbt_sage_intacct_source/))
 
 ## What does this dbt package do?
 - Materializes [Sage Intacct staging tables](https://fivetran.github.io/dbt_sage_intacct_source/#!/overview/sage_intacct_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/sage-intacct#schemainformation). These staging tables clean, test, and prepare your Sage Intacct data from [Fivetran's connector](https://fivetran.com/docs/applications/sage-intacct) for analysis by doing the following:
