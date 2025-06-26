@@ -16,6 +16,7 @@
 - Materializes [Sage Intacct staging tables](https://fivetran.github.io/dbt_sage_intacct_source/#!/overview/sage_intacct_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/sage-intacct#schemainformation). These staging tables clean, test, and prepare your Sage Intacct data from [Fivetran's connector](https://fivetran.com/docs/applications/sage-intacct) for analysis by doing the following:
   - Names columns for consistency across all packages and for easier analysis
   - Adds freshness tests to source data
+    - dbt Core >= 1.9.6 is required to run freshness tests out of the box.
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your sage_intacct data through the [dbt docs site](https://fivetran.github.io/dbt_sage_intacct_source/).
 - These tables are designed to work simultaneously with our [Sage Intacct transformation package](https://github.com/fivetran/dbt_sage_intacct).
@@ -39,7 +40,7 @@ If you are **not** using the [Sage Intacct transformation package](https://githu
 ```yaml
 packages:
   - package: fivetran/sage_intacct_source
-    version: [">=0.4.0", "<0.5.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.5.0", "<0.6.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 ### Step 3: Define database and schema variables
 By default, this package runs using your destination and the `sage_intacct` schema. If this is not where your Sage Intacct data is (for example, if your Sage Intacct schema is named `sage_intacct_fivetran`), add the following configuration to your root `dbt_project.yml` file:
