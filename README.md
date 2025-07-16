@@ -82,7 +82,6 @@ vars:
     sage_intacct__using_bills: false                    # default is true
 ```
 
-
 #### Change the Build Schema
 By default, this package builds the Sage Intacct staging models within a schema titled (`<target_schema>` + `_stg_sage_intacct`) in your target database. If this is not where you would like your Sage Intacct staging data to be written to, add the following configuration to your `dbt_project.yml` file:
 
@@ -99,11 +98,11 @@ models:
 <details><summary>Expand for more details</summary>
 
 Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core™ setup guides](https://fivetran.com/docs/transformations/dbt#setupguide).
-    
+
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
 > IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_sage_intacct_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
-    
+
 ```yml
 vars:
     sage_intacct_<default_source_table_name>_identifier: your_table_name
